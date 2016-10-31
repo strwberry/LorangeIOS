@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF99CA011DC77E41000895F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA001DC77E41000895F7 /* AppDelegate.swift */; };
+		BF99CA031DC77E41000895F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA021DC77E41000895F7 /* ViewController.swift */; };
+		BF99CA061DC77E41000895F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF99CA041DC77E41000895F7 /* Main.storyboard */; };
+		BF99CA081DC77E41000895F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF99CA071DC77E41000895F7 /* Assets.xcassets */; };
+		BF99CA0B1DC77E41000895F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF99CA091DC77E41000895F7 /* LaunchScreen.storyboard */; };
+		BF99CA161DC77E41000895F7 /* LorangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA151DC77E41000895F7 /* LorangeTests.swift */; };
+		BF99CA211DC77E41000895F7 /* LorangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA201DC77E41000895F7 /* LorangeUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF99CA121DC77E41000895F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF99C9F51DC77E41000895F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF99C9FC1DC77E41000895F7;
+			remoteInfo = Lorange;
+		};
+		BF99CA1D1DC77E41000895F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF99C9F51DC77E41000895F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF99C9FC1DC77E41000895F7;
+			remoteInfo = Lorange;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF99C9FD1DC77E41000895F7 /* Lorange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lorange.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF99CA001DC77E41000895F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF99CA021DC77E41000895F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF99CA051DC77E41000895F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF99CA071DC77E41000895F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF99CA0A1DC77E41000895F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF99CA0C1DC77E41000895F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF99CA111DC77E41000895F7 /* LorangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LorangeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF99CA151DC77E41000895F7 /* LorangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LorangeTests.swift; sourceTree = "<group>"; };
+		BF99CA171DC77E41000895F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF99CA1C1DC77E41000895F7 /* LorangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LorangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF99CA201DC77E41000895F7 /* LorangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LorangeUITests.swift; sourceTree = "<group>"; };
+		BF99CA221DC77E41000895F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF99C9FA1DC77E41000895F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF99CA0E1DC77E41000895F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF99CA191DC77E41000895F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF99C9F41DC77E41000895F7 = {
+			isa = PBXGroup;
+			children = (
+				BF99C9FF1DC77E41000895F7 /* Lorange */,
+				BF99CA141DC77E41000895F7 /* LorangeTests */,
+				BF99CA1F1DC77E41000895F7 /* LorangeUITests */,
+				BF99C9FE1DC77E41000895F7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF99C9FE1DC77E41000895F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF99C9FD1DC77E41000895F7 /* Lorange.app */,
+				BF99CA111DC77E41000895F7 /* LorangeTests.xctest */,
+				BF99CA1C1DC77E41000895F7 /* LorangeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF99C9FF1DC77E41000895F7 /* Lorange */ = {
+			isa = PBXGroup;
+			children = (
+				BF99CA001DC77E41000895F7 /* AppDelegate.swift */,
+				BF99CA021DC77E41000895F7 /* ViewController.swift */,
+				BF99CA041DC77E41000895F7 /* Main.storyboard */,
+				BF99CA071DC77E41000895F7 /* Assets.xcassets */,
+				BF99CA091DC77E41000895F7 /* LaunchScreen.storyboard */,
+				BF99CA0C1DC77E41000895F7 /* Info.plist */,
+			);
+			path = Lorange;
+			sourceTree = "<group>";
+		};
+		BF99CA141DC77E41000895F7 /* LorangeTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF99CA151DC77E41000895F7 /* LorangeTests.swift */,
+				BF99CA171DC77E41000895F7 /* Info.plist */,
+			);
+			path = LorangeTests;
+			sourceTree = "<group>";
+		};
+		BF99CA1F1DC77E41000895F7 /* LorangeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF99CA201DC77E41000895F7 /* LorangeUITests.swift */,
+				BF99CA221DC77E41000895F7 /* Info.plist */,
+			);
+			path = LorangeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF99C9FC1DC77E41000895F7 /* Lorange */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF99CA251DC77E41000895F7 /* Build configuration list for PBXNativeTarget "Lorange" */;
+			buildPhases = (
+				BF99C9F91DC77E41000895F7 /* Sources */,
+				BF99C9FA1DC77E41000895F7 /* Frameworks */,
+				BF99C9FB1DC77E41000895F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lorange;
+			productName = Lorange;
+			productReference = BF99C9FD1DC77E41000895F7 /* Lorange.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF99CA101DC77E41000895F7 /* LorangeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF99CA281DC77E41000895F7 /* Build configuration list for PBXNativeTarget "LorangeTests" */;
+			buildPhases = (
+				BF99CA0D1DC77E41000895F7 /* Sources */,
+				BF99CA0E1DC77E41000895F7 /* Frameworks */,
+				BF99CA0F1DC77E41000895F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF99CA131DC77E41000895F7 /* PBXTargetDependency */,
+			);
+			name = LorangeTests;
+			productName = LorangeTests;
+			productReference = BF99CA111DC77E41000895F7 /* LorangeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF99CA1B1DC77E41000895F7 /* LorangeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF99CA2B1DC77E41000895F7 /* Build configuration list for PBXNativeTarget "LorangeUITests" */;
+			buildPhases = (
+				BF99CA181DC77E41000895F7 /* Sources */,
+				BF99CA191DC77E41000895F7 /* Frameworks */,
+				BF99CA1A1DC77E41000895F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF99CA1E1DC77E41000895F7 /* PBXTargetDependency */,
+			);
+			name = LorangeUITests;
+			productName = LorangeUITests;
+			productReference = BF99CA1C1DC77E41000895F7 /* LorangeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF99C9F51DC77E41000895F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Faro Analytics";
+				TargetAttributes = {
+					BF99C9FC1DC77E41000895F7 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					BF99CA101DC77E41000895F7 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BF99C9FC1DC77E41000895F7;
+					};
+					BF99CA1B1DC77E41000895F7 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BF99C9FC1DC77E41000895F7;
+					};
+				};
+			};
+			buildConfigurationList = BF99C9F81DC77E41000895F7 /* Build configuration list for PBXProject "Lorange" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF99C9F41DC77E41000895F7;
+			productRefGroup = BF99C9FE1DC77E41000895F7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF99C9FC1DC77E41000895F7 /* Lorange */,
+				BF99CA101DC77E41000895F7 /* LorangeTests */,
+				BF99CA1B1DC77E41000895F7 /* LorangeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF99C9FB1DC77E41000895F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF99CA0B1DC77E41000895F7 /* LaunchScreen.storyboard in Resources */,
+				BF99CA081DC77E41000895F7 /* Assets.xcassets in Resources */,
+				BF99CA061DC77E41000895F7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF99CA0F1DC77E41000895F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF99CA1A1DC77E41000895F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF99C9F91DC77E41000895F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF99CA031DC77E41000895F7 /* ViewController.swift in Sources */,
+				BF99CA011DC77E41000895F7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF99CA0D1DC77E41000895F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF99CA161DC77E41000895F7 /* LorangeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF99CA181DC77E41000895F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF99CA211DC77E41000895F7 /* LorangeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF99CA131DC77E41000895F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF99C9FC1DC77E41000895F7 /* Lorange */;
+			targetProxy = BF99CA121DC77E41000895F7 /* PBXContainerItemProxy */;
+		};
+		BF99CA1E1DC77E41000895F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF99C9FC1DC77E41000895F7 /* Lorange */;
+			targetProxy = BF99CA1D1DC77E41000895F7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF99CA041DC77E41000895F7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF99CA051DC77E41000895F7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF99CA091DC77E41000895F7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF99CA0A1DC77E41000895F7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF99CA231DC77E41000895F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF99CA241DC77E41000895F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF99CA261DC77E41000895F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Lorange/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faroanalytics.Lorange;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BF99CA271DC77E41000895F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Lorange/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faroanalytics.Lorange;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		BF99CA291DC77E41000895F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LorangeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faroanalytics.LorangeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lorange.app/Lorange";
+			};
+			name = Debug;
+		};
+		BF99CA2A1DC77E41000895F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LorangeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faroanalytics.LorangeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lorange.app/Lorange";
+			};
+			name = Release;
+		};
+		BF99CA2C1DC77E41000895F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = LorangeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faroanalytics.LorangeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Lorange;
+			};
+			name = Debug;
+		};
+		BF99CA2D1DC77E41000895F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = LorangeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faroanalytics.LorangeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Lorange;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF99C9F81DC77E41000895F7 /* Build configuration list for PBXProject "Lorange" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF99CA231DC77E41000895F7 /* Debug */,
+				BF99CA241DC77E41000895F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF99CA251DC77E41000895F7 /* Build configuration list for PBXNativeTarget "Lorange" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF99CA261DC77E41000895F7 /* Debug */,
+				BF99CA271DC77E41000895F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BF99CA281DC77E41000895F7 /* Build configuration list for PBXNativeTarget "LorangeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF99CA291DC77E41000895F7 /* Debug */,
+				BF99CA2A1DC77E41000895F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BF99CA2B1DC77E41000895F7 /* Build configuration list for PBXNativeTarget "LorangeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF99CA2C1DC77E41000895F7 /* Debug */,
+				BF99CA2D1DC77E41000895F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF99C9F51DC77E41000895F7 /* Project object */;
+}
