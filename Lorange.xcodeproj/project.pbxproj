@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		BF99CA011DC77E41000895F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA001DC77E41000895F7 /* AppDelegate.swift */; };
-		BF99CA031DC77E41000895F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA021DC77E41000895F7 /* ViewController.swift */; };
+		BF99CA031DC77E41000895F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA021DC77E41000895F7 /* LoginViewController.swift */; };
 		BF99CA061DC77E41000895F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF99CA041DC77E41000895F7 /* Main.storyboard */; };
 		BF99CA081DC77E41000895F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF99CA071DC77E41000895F7 /* Assets.xcassets */; };
 		BF99CA0B1DC77E41000895F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF99CA091DC77E41000895F7 /* LaunchScreen.storyboard */; };
 		BF99CA161DC77E41000895F7 /* LorangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA151DC77E41000895F7 /* LorangeTests.swift */; };
 		BF99CA211DC77E41000895F7 /* LorangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA201DC77E41000895F7 /* LorangeUITests.swift */; };
+		BF9CF01A1DC8AD38004E9F0A /* LocatorMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CF0191DC8AD38004E9F0A /* LocatorMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		BF99C9FD1DC77E41000895F7 /* Lorange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lorange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF99CA001DC77E41000895F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF99CA021DC77E41000895F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF99CA021DC77E41000895F7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF99CA051DC77E41000895F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF99CA071DC77E41000895F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF99CA0A1DC77E41000895F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		BF99CA1C1DC77E41000895F7 /* LorangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LorangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF99CA201DC77E41000895F7 /* LorangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LorangeUITests.swift; sourceTree = "<group>"; };
 		BF99CA221DC77E41000895F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF9CF0191DC8AD38004E9F0A /* LocatorMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocatorMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				BF99CA001DC77E41000895F7 /* AppDelegate.swift */,
-				BF99CA021DC77E41000895F7 /* ViewController.swift */,
+				BF99CA021DC77E41000895F7 /* LoginViewController.swift */,
+				BF9CF0191DC8AD38004E9F0A /* LocatorMapViewController.swift */,
 				BF99CA041DC77E41000895F7 /* Main.storyboard */,
 				BF99CA071DC77E41000895F7 /* Assets.xcassets */,
 				BF99CA091DC77E41000895F7 /* LaunchScreen.storyboard */,
@@ -259,7 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF99CA031DC77E41000895F7 /* ViewController.swift in Sources */,
+				BF9CF01A1DC8AD38004E9F0A /* LocatorMapViewController.swift in Sources */,
+				BF99CA031DC77E41000895F7 /* LoginViewController.swift in Sources */,
 				BF99CA011DC77E41000895F7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +509,7 @@
 				BF99CA271DC77E41000895F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF99CA281DC77E41000895F7 /* Build configuration list for PBXNativeTarget "LorangeTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				BF99CA2A1DC77E41000895F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF99CA2B1DC77E41000895F7 /* Build configuration list for PBXNativeTarget "LorangeUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +527,7 @@
 				BF99CA2D1DC77E41000895F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
