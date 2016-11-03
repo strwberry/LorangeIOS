@@ -4,11 +4,19 @@ import UIKit
 class LocatorMapViewController: UIViewController {
     
     @IBOutlet weak var Label: UILabel!
+    var userID: Int?
     
-    var labelText = String()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let userID = userID {
+            Label.text = "\(userID)"
+        }
+    }
+
     
     override func viewDidLoad() {
-        Label.text = labelText
+        super.viewDidLoad()
     }
 }
 

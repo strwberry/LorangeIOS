@@ -2,69 +2,139 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    var userID: Int?
+    var semaphoreForSegue: DispatchSemaphore?
+    var semaphoreForSuccess: DispatchSemaphore?
     
     @IBOutlet weak var emailBox: UITextField!
     @IBOutlet weak var passwordBox: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
-    @IBAction func LoginClicked(_ sender: UIButton) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
+    
+    // checking if the login is valid or not
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-        if emailBox.text!.isEmpty {
-            emailBox.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName:UIColor.red])
+        if identifier == "segueToLocatorMap" {
             
-        } else if passwordBox.text!.isEmpty {
-            passwordBox.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName:UIColor.red])
-            
-        } else {
-            
-            var request = URLRequest(url: URL(string: "http://faroanalytics.com/loginCheck.php")!)
-            request.httpMethod = "POST"
-            
-            let body = "email=\(emailBox.text!.lowercased())&password=\(passwordBox.text!)"
-            request.httpBody = body.data(using: String.Encoding.utf8)
-            
-            
-            let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {
-                data, response, error in
-                    
-                guard error == nil && data != nil else
+            if emailBox.text!.isEmpty
+            {
+                emailBox.attributedPlaceholder = NSAttributedString(string: "Enter email", attributes: [NSForegroundColorAttributeName:UIColor.red])
+                
+                return false
+            }
+            else if passwordBox.text!.isEmpty
+            {
+                passwordBox.attributedPlaceholder = NSAttributedString(string: "Enter password", attributes: [NSForegroundColorAttributeName:UIColor.red])
+                
+                return false
+            }
+            else
+            {
+                self.emailBox.resignFirstResponder()
+                
+                semaphoreForSegue = DispatchSemaphore.init(value: 0)
+                
+                let validLogin = CheckLogin(email: "\(emailBox.text!.lowercased())", password: "\(passwordBox.text!)")
+                
+                _ = semaphoreForSegue?.wait(timeout: DispatchTime.distantFuture)
+                
+                if validLogin
                 {
-                    print("error:", error)
-                    return
-                }
-                    
-                let httpStatus = response as? HTTPURLResponse
-                    
-                if httpStatus!.expectedContentLength != 0
-                {
-                    do
-                    {
-                        let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [Any]
-                        print(json.count)
-                    }
-                    catch
-                    {
-                        print("Error creating the database")
-                    }
+                    return true
                 }
                 else
                 {
-                    print("No data got from the URL")
+                    return false
                 }
-            })
-            task.resume()
+            }
+            
+        } else { return false}
+        
+    }
+        
+    
+    
+    // sending the request to server and collecting the userID if accepted
+    
+    func CheckLogin(email: String, password: String) -> Bool {
+        
+        var verdict = false
+        
+        var request = URLRequest(url: URL(string: "http://faroanalytics.com/loginCheck.php")!)
+        request.httpMethod = "POST"
+        
+        let body = "email=\(email)&password=\(password)"
+        request.httpBody = body.data(using: String.Encoding.utf8)
+        
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            guard error == nil, let data = data else{
+                print("!!! URL_SESSION RETURNED AN ERROR OR NIL DATA !!!")
+                return
+            }
+            
+            do
+            {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
+                
+                if let json = json
+                {
+                    verdict = json["success"] as! Bool!
+                    
+                    if verdict == true
+                    {
+                        self.userID = json["userID"] as! Int!
+                    }
+                }
+                
+            }
+            catch let error as NSError
+            {
+                print("!!! JSON ERROR: \(error) !!!")
+            }
+            
+            self.semaphoreForSuccess?.signal()
+            
+        }
+        
+        semaphoreForSuccess = DispatchSemaphore.init(value: 0)
+        
+        task.resume()
+        
+        _ = semaphoreForSuccess?.wait(timeout: DispatchTime.distantFuture)
+        
+        semaphoreForSegue?.signal()
+        
+        return verdict
+    }
+    
+    
+    
+    
+    // running when segue validated
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "segueToLocatorMap"
+        {
+            let destinationVC = segue.destination as! LocatorMapViewController
+            
+            destinationVC.userID = self.userID
         }
     }
 }
-
-
-
-
-
-
-
