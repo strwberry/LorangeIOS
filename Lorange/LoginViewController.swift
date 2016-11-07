@@ -3,8 +3,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     var userID: Int?
-    var semaphoreForSegue: DispatchSemaphore?
-    var semaphoreForSuccess: DispatchSemaphore?
+    var semaphoreForVerdict: DispatchSemaphore?
     
     @IBOutlet weak var emailBox: UITextField!
     @IBOutlet weak var passwordBox: UITextField!
@@ -45,11 +44,7 @@ class LoginViewController: UIViewController {
             {
                 self.emailBox.resignFirstResponder()
                 
-                semaphoreForSegue = DispatchSemaphore.init(value: 0)
-                
                 let validLogin = CheckLogin(email: "\(emailBox.text!.lowercased())", password: "\(passwordBox.text!)")
-                
-                _ = semaphoreForSegue?.wait(timeout: DispatchTime.distantFuture)
                 
                 if validLogin
                 {
@@ -70,8 +65,6 @@ class LoginViewController: UIViewController {
     // sending the request to server and collecting the userID if accepted
     
     func CheckLogin(email: String, password: String) -> Bool {
-        
-        var verdict = false
         
         var request = URLRequest(url: URL(string: "http://faroanalytics.com/loginCheck.php")!)
         request.httpMethod = "POST"
@@ -94,9 +87,8 @@ class LoginViewController: UIViewController {
                 
                 if let json = json
                 {
-                    verdict = json["success"] as! Bool!
                     
-                    if verdict == true
+                    if json["success"] as! Bool! == true
                     {
                         self.userID = json["userID"] as! Int!
                     }
@@ -108,19 +100,17 @@ class LoginViewController: UIViewController {
                 print("!!! JSON ERROR: \(error) !!!")
             }
             
-            self.semaphoreForSuccess?.signal()
+            self.semaphoreForVerdict?.signal()
             
         }
         
-        semaphoreForSuccess = DispatchSemaphore.init(value: 0)
+        semaphoreForVerdict = DispatchSemaphore.init(value: 0)
         
         task.resume()
         
-        _ = semaphoreForSuccess?.wait(timeout: DispatchTime.distantFuture)
+        _ = semaphoreForVerdict?.wait(timeout: DispatchTime.distantFuture)
         
-        semaphoreForSegue?.signal()
-        
-        return verdict
+        return true
     }
     
     
@@ -138,3 +128,4 @@ class LoginViewController: UIViewController {
         }
     }
 }
+
