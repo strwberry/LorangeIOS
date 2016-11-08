@@ -2,9 +2,9 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    var userID: Int?
+    let userID = UserDefaults.standard.integer(forKey: "userID")
+    var profileID: Int?
     var classMate: Alumni?
-    var semaphoreForProfile: DispatchSemaphore?
     var semaphoreForVerdict: DispatchSemaphore?
     
     @IBOutlet weak var pictureBox: UIImageView!
@@ -15,29 +15,29 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var workBox: UILabel!
     
     
-    override func viewDidLoad() {
+    
+     
+     // sending whatsapp to a contact
+    
+    @IBAction func sendWhatsapp(_ sender: UIButton) {
         
-        semaphoreForProfile = DispatchSemaphore.init(value: 0)
+        // apple doesn't allow to use whatsapp. find something else
+        
+    }
+    
+ 
+    
+    
+    override func viewDidLoad() {
         
         pictureBox.layer.cornerRadius = pictureBox.frame.size.width/2
         
         pictureBox.clipsToBounds = true
         
-        _ = loadProfile(userID: userID!)
+        _ = loadProfile(userID: profileID!)
         
-        _ = semaphoreForProfile?.wait(timeout: DispatchTime.distantFuture)
+        fillBoxes()
         
-        // load picture
-        
-        birthdayBox.text = classMate?.birthDate
-        
-        emailBox.text = classMate?.email
-        
-        phoneBox.text = classMate?.phone
-        
-        residenceBox.text = classMate?.residence
-        
-        workBox.text = classMate?.job
     }
     
     
@@ -69,7 +69,7 @@ class ProfileViewController: UIViewController {
                 {
                     
                     self.classMate = Alumni(
-                        userID: self.userID!,
+                        userID: self.profileID!,
                         firstName: json["firstName"]! as! String,
                         lastName: json["lastName"]! as! String,
                         phone: json["phone"]! as? String,
@@ -100,9 +100,39 @@ class ProfileViewController: UIViewController {
         
         _ = semaphoreForVerdict?.wait(timeout: DispatchTime.distantFuture)
         
-        semaphoreForProfile?.signal()
-        
         return true
+    }
+    
+    
+    
+    // fills the boxes with alumni profile info
+    
+    func fillBoxes() {
+        
+        birthdayBox.text = classMate?.birthDate
+        
+        emailBox.text = classMate?.email
+        
+        phoneBox.text = classMate?.phone
+        
+        residenceBox.text = classMate?.residence
+        
+        workBox.text = classMate?.job
+        
+        let url = URL(string: (classMate?.picture)!)!
+        
+        let session = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+            
+            if let data = data
+            {
+                let image = UIImage(data: data)
+                
+                self.pictureBox.image = image
+            }
+        })
+        
+        session.resume()
+        
     }
 
     

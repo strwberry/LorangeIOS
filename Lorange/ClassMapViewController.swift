@@ -4,11 +4,10 @@ import CoreLocation
 
 class ClassMapViewController: UIViewController, MKMapViewDelegate {
     
-    var userID: Int?
+    let userID = UserDefaults.standard.integer(forKey: "userID")
     var positionLat: Int?
     var positionLng: Int?
     var classList = [Alumni]()
-    // var semaphoreForZoom: DispatchSemaphore?
     var semaphoreForVerdict: DispatchSemaphore?
     
     @IBOutlet weak var Map: MKMapView!
@@ -18,15 +17,9 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // _ = MKCoordinateRegion(center: CLLocationCoordinate2DMake(1, 2), span: MKCoordinateSpanMake(100, 100))
-        
-        // semaphoreForZoom = DispatchSemaphore.init(value: 0)
-        
         Map.delegate = self
         
-        _ = loadClassList(userID: self.userID!, positionLat: self.positionLat!, positionLng: self.positionLng!)
-        
-        // _ = semaphoreForZoom?.wait(timeout: DispatchTime.distantFuture)
+        _ = loadClassList(userID: self.userID, positionLat: self.positionLat!, positionLng: self.positionLng!)
         
         let region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(46.510696, 6.619853), span: MKCoordinateSpanMake(120.0, 120.0))
         
@@ -126,18 +119,12 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
     // running when segue validated
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "segueToClassList"
-        {
-            let destinationVC = segue.destination as! ClassListViewController
-            
-            destinationVC.userID = self.userID
-        }
-        else if segue.identifier == "segueToProfile"
+
+        if segue.identifier == "segueToProfile"
         {
             let destinationVC = segue.destination as! ProfileViewController
             
-            destinationVC.userID = self.userID
+            destinationVC.profileID = self.userID
         }
     }
 

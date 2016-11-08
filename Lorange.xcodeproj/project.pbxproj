@@ -10,6 +10,7 @@
 		BF2071281DC9F27000294FDF /* Alumni.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2071271DC9F27000294FDF /* Alumni.swift */; };
 		BF79EE921DCCD87400DBD26F /* ClassMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF79EE911DCCD87400DBD26F /* ClassMapViewController.swift */; };
 		BF79EE941DCE1A2F00DBD26F /* ClassListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF79EE931DCE1A2F00DBD26F /* ClassListViewController.swift */; };
+		BF943A841DD1BE9600E9E890 /* OpeningNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF943A831DD1BE9600E9E890 /* OpeningNavigationController.swift */; };
 		BF99CA011DC77E41000895F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA001DC77E41000895F7 /* AppDelegate.swift */; };
 		BF99CA031DC77E41000895F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA021DC77E41000895F7 /* LoginViewController.swift */; };
 		BF99CA061DC77E41000895F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF99CA041DC77E41000895F7 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 		BF99CA211DC77E41000895F7 /* LorangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA201DC77E41000895F7 /* LorangeUITests.swift */; };
 		BF9CF01A1DC8AD38004E9F0A /* LocatorMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CF0191DC8AD38004E9F0A /* LocatorMapViewController.swift */; };
 		BF9D2F5B1DD0880200D80044 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D2F5A1DD0880200D80044 /* ProfileViewController.swift */; };
+		BF9D2F5D1DD118EC00D80044 /* ClassListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D2F5C1DD118EC00D80044 /* ClassListViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 		BF2071271DC9F27000294FDF /* Alumni.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alumni.swift; sourceTree = "<group>"; };
 		BF79EE911DCCD87400DBD26F /* ClassMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassMapViewController.swift; sourceTree = "<group>"; };
 		BF79EE931DCE1A2F00DBD26F /* ClassListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassListViewController.swift; sourceTree = "<group>"; };
+		BF943A831DD1BE9600E9E890 /* OpeningNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningNavigationController.swift; sourceTree = "<group>"; };
 		BF99C9FD1DC77E41000895F7 /* Lorange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lorange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF99CA001DC77E41000895F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF99CA021DC77E41000895F7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 		BF99CA221DC77E41000895F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF9CF0191DC8AD38004E9F0A /* LocatorMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocatorMapViewController.swift; sourceTree = "<group>"; };
 		BF9D2F5A1DD0880200D80044 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BF9D2F5C1DD118EC00D80044 /* ClassListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassListViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,11 +112,13 @@
 			isa = PBXGroup;
 			children = (
 				BF99CA001DC77E41000895F7 /* AppDelegate.swift */,
+				BF943A831DD1BE9600E9E890 /* OpeningNavigationController.swift */,
 				BF2071271DC9F27000294FDF /* Alumni.swift */,
 				BF99CA021DC77E41000895F7 /* LoginViewController.swift */,
 				BF9CF0191DC8AD38004E9F0A /* LocatorMapViewController.swift */,
 				BF79EE911DCCD87400DBD26F /* ClassMapViewController.swift */,
 				BF79EE931DCE1A2F00DBD26F /* ClassListViewController.swift */,
+				BF9D2F5C1DD118EC00D80044 /* ClassListViewCell.swift */,
 				BF9D2F5A1DD0880200D80044 /* ProfileViewController.swift */,
 				BF99CA041DC77E41000895F7 /* Main.storyboard */,
 				BF99CA071DC77E41000895F7 /* Assets.xcassets */,
@@ -278,9 +284,11 @@
 				BF2071281DC9F27000294FDF /* Alumni.swift in Sources */,
 				BF99CA031DC77E41000895F7 /* LoginViewController.swift in Sources */,
 				BF79EE941DCE1A2F00DBD26F /* ClassListViewController.swift in Sources */,
+				BF943A841DD1BE9600E9E890 /* OpeningNavigationController.swift in Sources */,
 				BF9D2F5B1DD0880200D80044 /* ProfileViewController.swift in Sources */,
 				BF99CA011DC77E41000895F7 /* AppDelegate.swift in Sources */,
 				BF79EE921DCCD87400DBD26F /* ClassMapViewController.swift in Sources */,
+				BF9D2F5D1DD118EC00D80044 /* ClassListViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

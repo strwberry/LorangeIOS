@@ -8,6 +8,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailBox: UITextField!
     @IBOutlet weak var passwordBox: UITextField!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -122,9 +124,11 @@ class LoginViewController: UIViewController {
         
         if segue.identifier == "segueToLocatorMap"
         {
-            let destinationVC = segue.destination as! LocatorMapViewController
+            UserDefaults.standard.set(true, forKey: "isLoggedIn")
             
-            destinationVC.userID = self.userID
+            UserDefaults.standard.set(self.userID, forKey: "userID")
+            
+            UserDefaults.standard.synchronize()
         }
     }
 }

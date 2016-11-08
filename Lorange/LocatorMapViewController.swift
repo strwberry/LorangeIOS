@@ -4,7 +4,7 @@ import CoreLocation
 
 class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    var userID: Int?
+    // var userID: Int?
     let manager = CLLocationManager()
     
     @IBOutlet weak var Map: MKMapView!
@@ -15,7 +15,7 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Map.delegate = self
+        self.Map.delegate = self
         
         locateUserAndStop()
     }
@@ -87,9 +87,9 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         self.view.endEditing(true)
     }
     
+        
     
-    
-    // running when segue validated
+    // running when a segue is validated
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -97,11 +97,15 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         {
             let destinationVC = segue.destination as! ClassMapViewController
             
-            destinationVC.userID = self.userID
-            
             destinationVC.positionLat = Int(Map.centerCoordinate.latitude * 1000000)
             
             destinationVC.positionLng = Int(Map.centerCoordinate.longitude * 1000000)
+        }
+        else if segue.identifier == "logout"
+        {
+            UserDefaults.standard.set(false, forKey: "isLoggedIn")
+            
+            UserDefaults.standard.synchronize()
         }
     }
 

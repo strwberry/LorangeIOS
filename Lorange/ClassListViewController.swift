@@ -2,7 +2,6 @@ import UIKit
 
 class ClassListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var userID: Int?
     var classList = [Alumni]()
     var semaphoreForVerdict: DispatchSemaphore?
     
@@ -19,9 +18,31 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = TableView.dequeueReusableCell(withIdentifier: "cell")!
+        let cell = TableView.dequeueReusableCell(withIdentifier: "cell") as! ClassListViewCell
         
-        cell.textLabel?.text = classList[indexPath.row].getName()
+        cell.nameBox.text = classList[indexPath.row].getName()
+        
+        cell.infoBox.text = classList[indexPath.row].job + ", " + classList[indexPath.row].residence
+        
+        // pictures...
+        
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        
+        let url = URL(string: classList[indexPath.row].picture)
+        
+        let session = URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            
+            if let data = data
+            {
+                let image = UIImage(data: data)
+                
+                cell.pictureBox.image = image
+            }
+        })
+        
+        session.resume()
+        
+        //////////////////////////////////////////////////////////////////////////////////////////////
         
         return cell
     }
@@ -80,8 +101,6 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
                             picture: json[i]["picture"]!)
                         )
                         
-                        print(self.classList[i].getName())
-                        
                     }
                     
                 }
@@ -103,5 +122,26 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return true
     }
-
+    
+    
+    
+    // running right before the segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "segueToProfile"
+        {
+            
+            if let indexPath = TableView.indexPathForSelectedRow
+            {
+                let destinationVC = segue.destination as! ProfileViewController
+                
+                destinationVC.profileID = classList[indexPath.row].userID
+            }
+            
+        }
+        
+    }
+    
+    
 }
