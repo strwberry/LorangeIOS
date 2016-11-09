@@ -19,9 +19,14 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
         
         Map.delegate = self
         
-        _ = loadClassList(userID: self.userID, positionLat: self.positionLat!, positionLng: self.positionLng!)
+        _ = loadClassList(userID: self.userID, positionLat: self.positionLat, positionLng: self.positionLng)
         
         let region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(46.510696, 6.619853), span: MKCoordinateSpanMake(120.0, 120.0))
+        
+        for i:Int in 0 ..< classList.count
+        {
+            addPin(classMate: classList[i])
+        }
         
         Map.setRegion(region, animated: true)
     }
@@ -30,14 +35,17 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
     
     // Sends a request to server to fill the classList
     
-    func loadClassList(userID: Int, positionLat: Int, positionLng: Int) -> Bool {
+    func loadClassList(userID: Int, positionLat: Int?, positionLng: Int?) -> Bool {
         
         var request = URLRequest(url: URL(string: "http://faroanalytics.com/markers.php")!)
         request.httpMethod = "POST"
         
-        let body = "userID=\(userID)&positionLat=\(positionLat)&positionLng=\(positionLng)"
-        request.httpBody = body.data(using: String.Encoding.utf8)
-        
+        if positionLat != nil && positionLng != nil
+        {
+            let body = "userID=\(userID)&positionLat=\(positionLat)&positionLng=\(positionLng)"
+            
+            request.httpBody = body.data(using: String.Encoding.utf8)
+        }
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
@@ -53,7 +61,6 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
                 
                 if let json = json
                 {
-                    
                     for i:Int in 0 ..< json.count
                     {
                     
@@ -72,9 +79,7 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
                             picture: json[i]["picture"]!)
                         )
                         
-                        self.addPin(location: self.classList[i].getPosition(), name: self.classList[i].getName())
                     }
-                    
                 }
                 
             }
@@ -102,16 +107,15 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
     
     // adding pins on the map
     
-    func addPin(location: CLLocationCoordinate2D, name: String?) -> Void {
+    func addPin(classMate: Alumni) -> Void {
         
         let annotation = MKPointAnnotation()
         
-        annotation.coordinate = location
+        annotation.coordinate = classMate.getPosition()
         
-        annotation.title = name
+        annotation.title = classMate.getName() + " >>"
         
         Map.addAnnotation(annotation)
-        
     }
     
     
@@ -120,7 +124,7 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if segue.identifier == "segueToProfile"
+        if segue.identifier == "segueToMyProfile"
         {
             let destinationVC = segue.destination as! ProfileViewController
             

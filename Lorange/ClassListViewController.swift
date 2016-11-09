@@ -4,6 +4,9 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var classList = [Alumni]()
     var semaphoreForVerdict: DispatchSemaphore?
+    var semaphoreForImage: DispatchSemaphore?
+    var image: UIImage = UIImage()
+    
     
     @IBOutlet weak var TableView: UITableView!
     
@@ -24,25 +27,7 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         cell.infoBox.text = classList[indexPath.row].job + ", " + classList[indexPath.row].residence
         
-        // pictures...
-        
-        //////////////////////////////////////////////////////////////////////////////////////////////
-        
-        let url = URL(string: classList[indexPath.row].picture)
-        
-        let session = URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-            
-            if let data = data
-            {
-                let image = UIImage(data: data)
-                
-                cell.pictureBox.image = image
-            }
-        })
-        
-        session.resume()
-        
-        //////////////////////////////////////////////////////////////////////////////////////////////
+        cell.pictureBox.image = loadPicture(rowNumber: indexPath.row)
         
         return cell
     }
@@ -121,6 +106,33 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
         _ = semaphoreForVerdict?.wait(timeout: DispatchTime.distantFuture)
         
         return true
+    }
+    
+    
+    
+    //
+    
+    func loadPicture(rowNumber: Int) -> UIImage {
+        
+        let url = URL(string: classList[rowNumber].picture)
+        
+        let session = URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            
+            if let data = data
+            {
+                self.image = UIImage(data: data)!
+            }
+            self.semaphoreForImage?.signal()
+            
+        })
+        
+        semaphoreForImage = DispatchSemaphore.init(value: 0)
+        
+        session.resume()
+        
+        _ = semaphoreForImage?.wait(timeout: DispatchTime.distantFuture)
+        
+        return image
     }
     
     

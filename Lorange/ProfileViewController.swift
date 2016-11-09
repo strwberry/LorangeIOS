@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var phoneBox: UILabel!
     @IBOutlet weak var residenceBox: UILabel!
     @IBOutlet weak var workBox: UILabel!
+    @IBOutlet weak var editButton: UIButton!
     
     
     
@@ -29,6 +30,11 @@ class ProfileViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
+        if profileID != userID
+        {
+            editButton.isHidden = true
+        }
         
         pictureBox.layer.cornerRadius = pictureBox.frame.size.width/2
         
