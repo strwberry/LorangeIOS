@@ -98,8 +98,6 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
         
         _ = semaphoreForVerdict?.wait(timeout: DispatchTime.distantFuture)
         
-        // semaphoreForZoom?.signal()
-        
         return true
     }
     
