@@ -4,20 +4,57 @@ import CoreLocation
 
 class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    // var userID: Int?
     let manager = CLLocationManager()
     
     @IBOutlet weak var Map: MKMapView!
     @IBOutlet weak var AddressBox: UITextField!
+    @IBOutlet weak var viewBox: UIView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewBox.layer.cornerRadius = viewBox.frame.size.height/2
+        
+        viewBox.clipsToBounds = true
+        
         self.Map.delegate = self
         
         locateUserAndStop()
+    }
+    
+    
+    
+    // locates user when location button is touched
+    
+    @IBAction func locateUser(_ sender: UIButton) {
+        
+        locateUserAndStop()
+    }
+    
+    
+    
+    // searches the location mentionned in the textfield
+    
+    @IBAction func searchLocation(_ sender: Any) {
+        
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.geocodeAddressString(AddressBox.text!, completionHandler: { (placemarks, error) -> Void in
+            
+            guard error == nil, placemarks == nil else
+            {
+                let location = placemarks?.first?.location
+                
+                let region = MKCoordinateRegion(center: (location!.coordinate), span: MKCoordinateSpanMake(0.01, 0.01))
+                
+                self.Map.setRegion(region, animated: true)
+                
+                return
+            }
+        })
+        
     }
     
     
@@ -43,6 +80,7 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 self.AddressBox!.text = "gone fishing"
             }
         })
+        
     }
     
     
@@ -95,11 +133,9 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         if segue.identifier == "segueToClassMap"
         {
-            let destinationVC = segue.destination as! ClassMapViewController
+            UserDefaults.standard.set(Int(Map.centerCoordinate.latitude * 1000000), forKey: "positionLat")
             
-            destinationVC.positionLat = Int(Map.centerCoordinate.latitude * 1000000)
-            
-            destinationVC.positionLng = Int(Map.centerCoordinate.longitude * 1000000)
+            UserDefaults.standard.set(Int(Map.centerCoordinate.longitude * 1000000), forKey: "positionLng")
         }
         else if segue.identifier == "logout"
         {
@@ -110,4 +146,6 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
 
 }
+
+
 

@@ -5,8 +5,8 @@ import CoreLocation
 class ClassMapViewController: UIViewController, MKMapViewDelegate {
     
     let userID = UserDefaults.standard.integer(forKey: "userID")
-    var positionLat: Int?
-    var positionLng: Int?
+    var positionLat = UserDefaults.standard.integer(forKey: "positionLat")
+    var positionLng = UserDefaults.standard.integer(forKey: "positionLng")
     var classList = [Alumni]()
     var semaphoreForVerdict: DispatchSemaphore?
     
@@ -35,17 +35,13 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
     
     // Sends a request to server to fill the classList
     
-    func loadClassList(userID: Int, positionLat: Int?, positionLng: Int?) -> Bool {
+    func loadClassList(userID: Int, positionLat: Int, positionLng: Int) -> Bool {
         
         var request = URLRequest(url: URL(string: "http://faroanalytics.com/markers.php")!)
         request.httpMethod = "POST"
         
-        if positionLat != nil && positionLng != nil
-        {
-            let body = "userID=\(userID)&positionLat=\(positionLat)&positionLng=\(positionLng)"
-            
-            request.httpBody = body.data(using: String.Encoding.utf8)
-        }
+        let body = "userID=\(userID)&positionLat=\(positionLat)&positionLng=\(positionLng)"
+        request.httpBody = body.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
@@ -107,13 +103,54 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
     
     func addPin(classMate: Alumni) -> Void {
         
-        let annotation = MKPointAnnotation()
+        let annotation: CustomMKPointAnnotation = CustomMKPointAnnotation()
         
         annotation.coordinate = classMate.getPosition()
         
-        annotation.title = classMate.getName() + " >>"
+        annotation.title = classMate.getName()
+        
+        annotation.userID = classMate.userID
         
         Map.addAnnotation(annotation)
+    }
+    
+    
+    
+    // is called every time an annotation is about to be added to the map
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "pin")
+        
+        if annotationView == nil
+        {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            
+            annotationView?.canShowCallout = true
+        }
+        else
+        {
+            annotationView?.annotation = annotation
+        }
+        annotationView?.image = UIImage(named: "marker")
+        
+        let goToProfile = UIButton(type: .infoLight)
+        
+        annotationView?.rightCalloutAccessoryView = goToProfile
+        
+        return annotationView
+    }
+    
+    
+    
+    // implementing a segue from the annotation callout
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        let selctedClassMate = (view.annotation as! CustomMKPointAnnotation).userID
+        
+        performSegue(withIdentifier: "segueToOtherProfile", sender: selctedClassMate)
+        
     }
     
     
@@ -128,6 +165,20 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
             
             destinationVC.profileID = self.userID
         }
-    }
+        else if segue.identifier == "segueToOtherProfile"
+        {
+            let destinationVC = segue.destination as! ProfileViewController
+            
+            destinationVC.profileID = sender as! Int?
+        }
 
+    }
+    
+    
+    
+    // custom class
+    
+    class CustomMKPointAnnotation : MKPointAnnotation {
+        var userID : Int?
+    }
 }

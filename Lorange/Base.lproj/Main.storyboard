@@ -130,36 +130,45 @@
                                     <segue destination="OgQ-b9-0dj" kind="show" identifier="segueToClassMap" id="99m-Ss-GfE"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TbW-QQ-9aE">
-                                <rect key="frame" x="62" y="82" width="250" height="30"/>
+                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TbW-QQ-9aE">
+                                <rect key="frame" x="62" y="82" width="250" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="go" translatesAutoresizingMaskIntoConstraints="NO" id="K35-Qq-609">
-                                        <rect key="frame" x="217" y="3" width="25" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NRp-Kh-aJv">
-                                        <rect key="frame" x="9" y="0.0" width="200" height="30"/>
+                                        <rect key="frame" x="9" y="5" width="200" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atL-cl-VSu">
+                                        <rect key="frame" x="217" y="8" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="go"/>
+                                        <connections>
+                                            <action selector="searchLocation:" destination="ijc-M4-Bk7" eventType="touchUpInside" id="jFo-Vg-Hjc"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecW-Xb-Sbj">
+                                <rect key="frame" x="324" y="82" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="location"/>
+                                <connections>
+                                    <action selector="locateUser:" destination="ijc-M4-Bk7" eventType="touchUpInside" id="DCK-pz-5EY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="AddressBox" destination="NRp-Kh-aJv" id="Tpn-Db-8ae"/>
                         <outlet property="Map" destination="JMA-la-uhp" id="Lbl-S7-yI7"/>
+                        <outlet property="viewBox" destination="TbW-QQ-9aE" id="W2a-Yc-J6K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O4A-Ec-Qe0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -215,6 +224,7 @@
                     </view>
                     <connections>
                         <outlet property="Map" destination="adJ-NH-eFE" id="6Gu-YC-Mlh"/>
+                        <segue destination="24X-OG-C2B" kind="show" identifier="segueToOtherProfile" id="nzV-YQ-oym"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZNv-EJ-Xmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -466,6 +476,7 @@
         <image name="email" width="50" height="50"/>
         <image name="go" width="50" height="50"/>
         <image name="home" width="50" height="50"/>
+        <image name="location" width="25" height="25"/>
         <image name="my_profile" width="25" height="25"/>
         <image name="phone" width="50" height="50"/>
         <image name="profile_pic" width="120" height="120"/>
@@ -475,7 +486,7 @@
         <image name="work" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="m5k-un-njD"/>
-        <segue reference="f51-bK-4dq"/>
+        <segue reference="99m-Ss-GfE"/>
+        <segue reference="nzV-YQ-oym"/>
     </inferredMetricsTieBreakers>
 </document>
