@@ -8,8 +8,6 @@ class OpeningNavigationController: UINavigationController {
         
         if isLoggedIn()
         {
-            // let contextStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            
             let contextStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
             let locatorMapViewController: UIViewController = contextStoryBoard.instantiateViewController(withIdentifier: "LocatorMap")
@@ -21,7 +19,6 @@ class OpeningNavigationController: UINavigationController {
         {
             perform(#selector(showLoginViewController), with: nil, afterDelay: 0.01)
         }
-        
         
     }
     
@@ -48,29 +45,12 @@ class OpeningNavigationController: UINavigationController {
         
         present(loginViewController, animated: true, completion: {
             
-            // perhaps we'll do something here
-            
+            // perhaps do something like an animation
         })
         
     }
     
 }
-
-
-
-
-class TestViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = .red
-    }
-}
-
-
-
-
 
 
 

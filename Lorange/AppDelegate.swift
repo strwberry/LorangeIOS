@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,11 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // manages the start of the app
         window = UIWindow(frame: UIScreen.main.bounds)
-        
         window?.makeKeyAndVisible()
-        
         window?.rootViewController = OpeningNavigationController()
+        
+        // requests permission for receiving notifications
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { granted, error in if granted{}else{} })
+        
+        let activField = UNNotificationAction(identifier: "link", title: "click to see whos birthday it is", options: [.foreground])
+        
+        let notificationCathegory = UNNotificationCategory(identifier: "notificationCathegory", actions: [activField], intentIdentifiers: [], options: [])
+        
+        UNUserNotificationCenter.current().setNotificationCategories([notificationCathegory])
         
         return true
     }
@@ -47,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
 }
 

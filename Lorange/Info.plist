@@ -2,10 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>The app needs your permission to take pictures</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Maps needs your location to function!</string>
+	<string>The app needs your permission to locate you</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Maps needs your location to function!</string>
+	<string>The app needs your permission to locate you</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

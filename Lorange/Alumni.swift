@@ -69,4 +69,42 @@ class Alumni {
         
         return self.firstName + " " + self.lastName
     }
+    
+    
+    
+    // returns the birthday as a date
+    
+    func getBirthday() -> Date {
+        
+        let dateFormatter = DateFormatter()
+        
+        DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd", options: 0, locale: nil)
+        
+        var date = Date(timeIntervalSinceNow: 5)
+            
+        date = dateFormatter.date(from: self.birthDate)!
+        
+        return date
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

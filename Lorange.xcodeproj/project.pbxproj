@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF2071281DC9F27000294FDF /* Alumni.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2071271DC9F27000294FDF /* Alumni.swift */; };
+		BF38916C1DD65DB5002510A7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38916B1DD65DB5002510A7 /* EditProfileViewController.swift */; };
 		BF79EE921DCCD87400DBD26F /* ClassMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF79EE911DCCD87400DBD26F /* ClassMapViewController.swift */; };
 		BF79EE941DCE1A2F00DBD26F /* ClassListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF79EE931DCE1A2F00DBD26F /* ClassListViewController.swift */; };
 		BF943A841DD1BE9600E9E890 /* OpeningNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF943A831DD1BE9600E9E890 /* OpeningNavigationController.swift */; };
@@ -21,6 +22,7 @@
 		BF9CF01A1DC8AD38004E9F0A /* LocatorMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CF0191DC8AD38004E9F0A /* LocatorMapViewController.swift */; };
 		BF9D2F5B1DD0880200D80044 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D2F5A1DD0880200D80044 /* ProfileViewController.swift */; };
 		BF9D2F5D1DD118EC00D80044 /* ClassListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D2F5C1DD118EC00D80044 /* ClassListViewCell.swift */; };
+		BF9E7C0E1DDB4F3E00D1445A /* BirthdayNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9E7C0D1DDB4F3E00D1445A /* BirthdayNotificationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		BF2071271DC9F27000294FDF /* Alumni.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alumni.swift; sourceTree = "<group>"; };
+		BF38916B1DD65DB5002510A7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		BF79EE911DCCD87400DBD26F /* ClassMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassMapViewController.swift; sourceTree = "<group>"; };
 		BF79EE931DCE1A2F00DBD26F /* ClassListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassListViewController.swift; sourceTree = "<group>"; };
 		BF943A831DD1BE9600E9E890 /* OpeningNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningNavigationController.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		BF9CF0191DC8AD38004E9F0A /* LocatorMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocatorMapViewController.swift; sourceTree = "<group>"; };
 		BF9D2F5A1DD0880200D80044 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BF9D2F5C1DD118EC00D80044 /* ClassListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassListViewCell.swift; sourceTree = "<group>"; };
+		BF9E7C0D1DDB4F3E00D1445A /* BirthdayNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayNotificationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 				BF79EE931DCE1A2F00DBD26F /* ClassListViewController.swift */,
 				BF9D2F5C1DD118EC00D80044 /* ClassListViewCell.swift */,
 				BF9D2F5A1DD0880200D80044 /* ProfileViewController.swift */,
+				BF38916B1DD65DB5002510A7 /* EditProfileViewController.swift */,
+				BF9E7C0D1DDB4F3E00D1445A /* BirthdayNotificationViewController.swift */,
 				BF99CA041DC77E41000895F7 /* Main.storyboard */,
 				BF99CA071DC77E41000895F7 /* Assets.xcassets */,
 				BF99CA091DC77E41000895F7 /* LaunchScreen.storyboard */,
@@ -281,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF9CF01A1DC8AD38004E9F0A /* LocatorMapViewController.swift in Sources */,
+				BF9E7C0E1DDB4F3E00D1445A /* BirthdayNotificationViewController.swift in Sources */,
 				BF2071281DC9F27000294FDF /* Alumni.swift in Sources */,
 				BF99CA031DC77E41000895F7 /* LoginViewController.swift in Sources */,
 				BF79EE941DCE1A2F00DBD26F /* ClassListViewController.swift in Sources */,
@@ -288,6 +295,7 @@
 				BF9D2F5B1DD0880200D80044 /* ProfileViewController.swift in Sources */,
 				BF99CA011DC77E41000895F7 /* AppDelegate.swift in Sources */,
 				BF79EE921DCCD87400DBD26F /* ClassMapViewController.swift in Sources */,
+				BF38916C1DD65DB5002510A7 /* EditProfileViewController.swift in Sources */,
 				BF9D2F5D1DD118EC00D80044 /* ClassListViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

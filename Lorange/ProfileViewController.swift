@@ -22,7 +22,12 @@ class ProfileViewController: UIViewController {
     
     @IBAction func sendWhatsapp(_ sender: UIButton) {
         
-        // apple doesn't allow to use whatsapp. find something else
+        let whatsappURL: URL? = URL(string: "whatsapp://send?text=Hello%2C%20World!")
+        
+        if UIApplication.shared.canOpenURL(whatsappURL!)
+        {
+            UIApplication.shared.open(whatsappURL!, options: [:], completionHandler: nil)
+        }
         
     }
     
@@ -139,6 +144,24 @@ class ProfileViewController: UIViewController {
         
         session.resume()
         
+    }
+    
+    
+    
+    // gets called whenever a segue is about to get triggered
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "segueToEditProfile"
+        {
+            let destinationVC = segue.destination as! EditProfileViewController
+            
+            destinationVC.email = self.classMate?.email
+            destinationVC.phone = self.classMate?.phone
+            destinationVC.job = self.classMate?.job
+            destinationVC.residence = self.classMate?.residence
+            destinationVC.password = self.classMate?.password
+        }
     }
 
     
