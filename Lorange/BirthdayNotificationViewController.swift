@@ -8,10 +8,13 @@ class BirthdayNotificationViewController: UIViewController {
     
     @IBOutlet weak var pictureBox: UIImageView!
     @IBOutlet weak var nameBox: UILabel!
+    @IBOutlet weak var pictureBackground: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pictureBackground.layer.cornerRadius = pictureBackground.frame.size.width/2
         
         pictureBox.layer.cornerRadius = pictureBox.frame.size.width/2
         
@@ -34,9 +37,19 @@ class BirthdayNotificationViewController: UIViewController {
         session.resume()
     }
     
+    
+    
+    // using whatsapp
+    
     @IBAction func sendMessage(_ sender: UIButton) {
         
-        // send a message to birthday person when user hits the button
+        let whatsappURL: URL? = URL(string: "whatsapp://send?text=Hello%2C%20World!")
+        
+        if UIApplication.shared.canOpenURL(whatsappURL!)
+        {
+            UIApplication.shared.open(whatsappURL!, options: [:], completionHandler: nil)
+        }
+
     }
     
 }

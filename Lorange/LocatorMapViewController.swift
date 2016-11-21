@@ -5,6 +5,8 @@ import CoreLocation
 class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let manager = CLLocationManager()
+    var positionLat: Int?
+    var positionLng: Int?
     
     @IBOutlet weak var Map: MKMapView!
     @IBOutlet weak var AddressBox: UITextField!
@@ -81,6 +83,10 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
             }
         })
         
+        positionLat = Int(Map.centerCoordinate.latitude * 1000000)
+        
+        positionLng = Int(Map.centerCoordinate.longitude * 1000000)
+        
     }
     
     
@@ -133,9 +139,15 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         if segue.identifier == "segueToClassMap"
         {
-            UserDefaults.standard.set(Int(Map.centerCoordinate.latitude * 1000000), forKey: "positionLat")
+            let destinationVC = segue.destination as! ClassMapViewController
             
-            UserDefaults.standard.set(Int(Map.centerCoordinate.longitude * 1000000), forKey: "positionLng")
+            destinationVC.positionLat = self.positionLat
+            
+            destinationVC.positionLng = self.positionLng
+            
+            UserDefaults.standard.set(positionLat, forKey: "positionLat")
+            
+            UserDefaults.standard.set(positionLng, forKey: "positionLng")
         }
         else if segue.identifier == "logout"
         {

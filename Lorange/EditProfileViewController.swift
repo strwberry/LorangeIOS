@@ -265,12 +265,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                     
                     content.sound = UNNotificationSound.default()
                     
-                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                    // let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: classList[i].getBirthday()), repeats: false)
+                    // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: classList[i].getBirthday()), repeats: false)
                     
                     let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
-                    
-                    // UNUserNotificationCenter.current().postNotificationName(requestIdentifier, object: classList[i])
                     
                     UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in
                         if error != nil

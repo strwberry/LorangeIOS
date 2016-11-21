@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var residenceBox: UILabel!
     @IBOutlet weak var workBox: UILabel!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var pictureBackground: UIView!
     
     
     
@@ -41,6 +42,8 @@ class ProfileViewController: UIViewController {
             editButton.isHidden = true
         }
         
+        pictureBackground.layer.cornerRadius = pictureBackground.frame.size.width/2
+        
         pictureBox.layer.cornerRadius = pictureBox.frame.size.width/2
         
         pictureBox.clipsToBounds = true
@@ -53,7 +56,7 @@ class ProfileViewController: UIViewController {
     
     
     
-    // Sends a request to server to fill the classList
+    // Sends a request to server to get details about the class mate
     
     func loadProfile(userID: Int) -> Bool {
         

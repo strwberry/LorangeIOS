@@ -5,8 +5,8 @@ import CoreLocation
 class ClassMapViewController: UIViewController, MKMapViewDelegate {
     
     let userID = UserDefaults.standard.integer(forKey: "userID")
-    var positionLat = UserDefaults.standard.integer(forKey: "positionLat")
-    var positionLng = UserDefaults.standard.integer(forKey: "positionLng")
+    var positionLat: Int!
+    var positionLng: Int!
     var classList = [Alumni]()
     var semaphoreForVerdict: DispatchSemaphore?
     
@@ -16,6 +16,8 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fillLatLng()
         
         Map.delegate = self
         
@@ -29,6 +31,23 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
         }
         
         Map.setRegion(region, animated: true)
+    }
+    
+    
+    
+    // fills latitude and longitude if user doesnt come from locator
+    
+    func fillLatLng() {
+        
+        if positionLat == nil
+        {
+            positionLat = UserDefaults.standard.integer(forKey: "positionLat")
+        }
+        
+        if positionLng == nil
+        {
+            positionLng = UserDefaults.standard.integer(forKey: "positionLng")
+        }
     }
     
     
