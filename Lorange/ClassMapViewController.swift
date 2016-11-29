@@ -56,7 +56,7 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
     
     func loadClassList(userID: Int, positionLat: Int, positionLng: Int) -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://faroanalytics.com/markers.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/marker.php")!)
         request.httpMethod = "POST"
         
         let body = "userID=\(userID)&positionLat=\(positionLat)&positionLng=\(positionLng)"

@@ -68,7 +68,7 @@ class LoginViewController: UIViewController {
     
     func CheckLogin(email: String, password: String) -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://faroanalytics.com/loginCheck.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/dbfiles/login.php")!)
         request.httpMethod = "POST"
         
         let body = "email=\(email)&password=\(password)"

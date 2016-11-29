@@ -50,7 +50,7 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func loadClassList() -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://faroanalytics.com/classList.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/class.php")!)
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {

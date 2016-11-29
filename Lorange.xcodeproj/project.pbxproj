@@ -453,7 +453,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Lorange/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.faroanalytics.Lorange;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strwberry.strwberry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -466,7 +466,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Lorange/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.faroanalytics.Lorange;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strwberry.strwberry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

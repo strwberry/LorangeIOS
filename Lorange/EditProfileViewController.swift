@@ -112,7 +112,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         var verdict = false
         
-        var request = URLRequest(url: URL(string: "http://faroanalytics.com/edit.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/picture.php")!)
         request.httpMethod = "POST"
         
         let body = "userID=\(userID)&imageName=\(imageName)&encodedString=\(encodedString)"
@@ -170,7 +170,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         var verdict = false
         
-        var request = URLRequest(url: URL(string: "http://faroanalytics.com/edit.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/edit.php")!)
         request.httpMethod = "POST"
         
         let body = "userID=\(userID)&email=\(email)&phone=\(phone)&job=\(job)&residence=\(residence)&password=\(password)"
@@ -263,7 +263,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     func loadClassList() -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://faroanalytics.com/classList.php")!)
+        var request = URLRequest(url: URL(string: "http://strwnerry.io/db_files/class.php")!)
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {

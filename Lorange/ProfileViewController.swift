@@ -60,7 +60,7 @@ class ProfileViewController: UIViewController {
     
     func loadProfile(userID: Int) -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://faroanalytics.com/profiles.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/profile.php")!)
         request.httpMethod = "POST"
         
         let body = "userID=\(userID)"
