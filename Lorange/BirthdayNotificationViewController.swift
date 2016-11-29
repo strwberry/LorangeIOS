@@ -43,7 +43,7 @@ class BirthdayNotificationViewController: UIViewController {
     
     @IBAction func sendMessage(_ sender: UIButton) {
         
-        let whatsappURL: URL? = URL(string: "whatsapp://send?text=Hello%2C%20World!")
+        let whatsappURL: URL? = URL(string: "whatsapp://send?text=Happy+birthday%21")
         
         if UIApplication.shared.canOpenURL(whatsappURL!)
         {

@@ -52,7 +52,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                          UPDATE PICTURE                                    //
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    
+    /*
     
     
     
@@ -66,7 +66,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             
             imagePicker.delegate = self
             
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera ; imagePicker.allowsEditing = true
+            imagePicker.allowsEditing = true
+            
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
             
             self.present(imagePicker, animated: true, completion: nil)
         }
@@ -74,7 +76,88 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     
+    // 
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let date = Date()
+        
+        let calendar = Calendar.current
+        
+        let dayStamp = calendar.component(.year, from: date) + calendar.component(.month, from: date) + calendar.component(.day, from: date)
+        
+        let clockStamp = calendar.component(.hour, from: date) + calendar.component(.minute, from: date) + calendar.component(.second, from: date)
+        
+        let imageName = "\(userID)_\(dayStamp)\(clockStamp)"
+        
+        if (info[UIImagePickerControllerOriginalImage] as? UIImage) != nil
+        {
+            let encodedString = (info[UIImagePickerControllerOriginalImage] as? NSData)?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            
+            updatePicture(userID: userID, imageName: imageName, encodedString: encodedString!)
+        }
+        else
+        {
+            // error
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    // loads new picture to the server and changes the picture reference in the db
+    
+    func updatePicture(userID: Int, imageName: String, encodedString: String) -> Bool {
+        
+        var verdict = false
+        
+        var request = URLRequest(url: URL(string: "http://faroanalytics.com/edit.php")!)
+        request.httpMethod = "POST"
+        
+        let body = "userID=\(userID)&imageName=\(imageName)&encodedString=\(encodedString)"
+        request.httpBody = body.data(using: String.Encoding.utf8)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            guard error == nil, let data = data else{
+                print("!!! URL_SESSION RETURNED AN ERROR OR NIL DATA !!!")
+                return
+            }
+            
+            do
+            {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
+                
+                if let json = json
+                {
+                    verdict = json["success"] as! Bool
+                    
+                }
+                
+            }
+            catch let error as NSError
+            {
+                print("!!! JSON ERROR: \(error) !!!")
+            }
+            
+            self.semaphoreForVerdict?.signal()
+            
+        }
+        
+        semaphoreForVerdict = DispatchSemaphore.init(value: 0)
+        
+        task.resume()
+        
+        _ = semaphoreForVerdict?.wait(timeout: DispatchTime.distantFuture)
+        
+        return verdict
+    }
+    
+    
+    
+    */
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                  UPDATE PROFILE INFORMATION                                //
     ////////////////////////////////////////////////////////////////////////////////////////////////

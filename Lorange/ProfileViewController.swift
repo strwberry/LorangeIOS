@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
     
     @IBAction func sendWhatsapp(_ sender: UIButton) {
         
-        let whatsappURL: URL? = URL(string: "whatsapp://send?text=Hello%2C%20World!")
+        let whatsappURL: URL? = URL(string: "whatsapp://send?text=Hey%21")
         
         if UIApplication.shared.canOpenURL(whatsappURL!)
         {

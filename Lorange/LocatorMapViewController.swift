@@ -7,6 +7,7 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     let manager = CLLocationManager()
     var positionLat: Int?
     var positionLng: Int?
+    let ZOOM = 0.05
     
     @IBOutlet weak var Map: MKMapView!
     @IBOutlet weak var AddressBox: UITextField!
@@ -49,7 +50,7 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
             {
                 let location = placemarks?.first?.location
                 
-                let region = MKCoordinateRegion(center: (location!.coordinate), span: MKCoordinateSpanMake(0.01, 0.01))
+                let region = MKCoordinateRegion(center: (location!.coordinate), span: MKCoordinateSpanMake(self.ZOOM, self.ZOOM))
                 
                 self.Map.setRegion(region, animated: true)
                 
@@ -118,7 +119,7 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         let position = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
         
-        let region = MKCoordinateRegion(center: position, span: MKCoordinateSpanMake(0.01, 0.01))
+        let region = MKCoordinateRegion(center: position, span: MKCoordinateSpanMake(self.ZOOM, self.ZOOM))
         
         Map.setRegion(region, animated: true)
     }
