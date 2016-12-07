@@ -68,7 +68,9 @@ class LoginViewController: UIViewController {
     
     func CheckLogin(email: String, password: String) -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://strwberry.io/dbfiles/login.php")!)
+        var verdict = false
+        
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/login.php")!)
         request.httpMethod = "POST"
         
         let body = "email=\(email)&password=\(password)"
@@ -93,6 +95,8 @@ class LoginViewController: UIViewController {
                     if json["success"] as! Bool! == true
                     {
                         self.userID = json["userID"] as! Int!
+                        
+                        verdict = true
                     }
                 }
                 
@@ -112,7 +116,7 @@ class LoginViewController: UIViewController {
         
         _ = semaphoreForVerdict?.wait(timeout: DispatchTime.distantFuture)
         
-        return true
+        return verdict
     }
     
     

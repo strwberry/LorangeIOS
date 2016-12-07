@@ -29,6 +29,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         UNUserNotificationCenter.current().delegate = self
         
+        if UserDefaults.standard.bool(forKey: "notifications")
+        {
+           notificationSwitch.isOn = true
+        }
+        else
+        {
+            notificationSwitch.isOn = false
+        }
+        
         emailBox.text = email
         phoneBox.text = phone
         jobBox.text = job
@@ -52,7 +61,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                          UPDATE PICTURE                                    //
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    /*
+    
     
     
     
@@ -108,9 +117,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     // loads new picture to the server and changes the picture reference in the db
     
-    func updatePicture(userID: Int, imageName: String, encodedString: String) -> Bool {
-        
-        var verdict = false
+    func updatePicture(userID: Int, imageName: String, encodedString: String) {
         
         var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/picture.php")!)
         request.httpMethod = "POST"
@@ -121,43 +128,23 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
             
-            guard error == nil, let data = data else{
-                print("!!! URL_SESSION RETURNED AN ERROR OR NIL DATA !!!")
-                return
-            }
-            
-            do
+            if error != nil
             {
-                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
-                
-                if let json = json
-                {
-                    verdict = json["success"] as! Bool
-                    
-                }
-                
+                print("error message: \(error)")
             }
-            catch let error as NSError
+            else
             {
-                print("!!! JSON ERROR: \(error) !!!")
+                // success
             }
-            
-            self.semaphoreForVerdict?.signal()
             
         }
-        
-        semaphoreForVerdict = DispatchSemaphore.init(value: 0)
-        
         task.resume()
         
-        _ = semaphoreForVerdict?.wait(timeout: DispatchTime.distantFuture)
-        
-        return verdict
     }
     
     
     
-    */
+    
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                  UPDATE PROFILE INFORMATION                                //
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -263,7 +250,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     func loadClassList() -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://strwnerry.io/db_files/class.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/class.php")!)
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
@@ -332,7 +319,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             if loadClassList()
             {
                 
-                for i: Int in 0...classList.count - 1
+                for i: Int in 0...(classList.count - 1)
                 {
                     let requestIdentifier = "BD_\(classList[i].userID)"
                     
@@ -348,8 +335,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                     
                     content.sound = UNNotificationSound.default()
                     
-                    // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: classList[i].getBirthday()), repeats: false)
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: getBirthday(alumni: classList[i])), repeats: false)
                     
                     let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
                     
@@ -360,12 +346,48 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                         }
                     })
                 }
+                UserDefaults.standard.set(true, forKey: "notifications")
             }
         }
         else
         {
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            
+            UserDefaults.standard.set(false, forKey: "notifications")
         }
+        
+    }
+    
+    
+    
+    // returns the alumni's next birthday as a date
+    
+    func getBirthday(alumni: Alumni) -> Date {
+        
+        let str = alumni.birthDate
+        
+        let calendarOfNextBirthday = Calendar.current
+        
+        var birthdayDateComponents = DateComponents()
+        
+        let dayRange = str.index(str.startIndex, offsetBy: 7)..<str.index(str.endIndex, offsetBy: 0)
+        
+        birthdayDateComponents.day = Int(str.substring(with: dayRange))
+        
+        let monthRange = str.index(str.startIndex, offsetBy: 5)..<str.index(str.endIndex, offsetBy: -3)
+        
+        birthdayDateComponents.month = Int(str.substring(with: monthRange))
+        
+        birthdayDateComponents.year = 2016
+        
+        while Date() >= calendarOfNextBirthday.date(from: birthdayDateComponents)!
+        {
+            birthdayDateComponents.year! = birthdayDateComponents.year! + 1
+        }
+        
+        let birthdayDate = calendarOfNextBirthday.date(from: birthdayDateComponents)!
+        
+        return birthdayDate
         
     }
 }

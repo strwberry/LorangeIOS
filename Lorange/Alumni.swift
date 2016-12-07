@@ -81,12 +81,11 @@ class Alumni {
         DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd", options: 0, locale: nil)
         
         var date = Date(timeIntervalSinceNow: 5)
-            
+        
         date = dateFormatter.date(from: self.birthDate)!
         
         return date
     }
-
 
 }
 
