@@ -371,7 +371,7 @@
                                             <segue destination="ijc-M4-Bk7" kind="presentation" id="8Yb-BA-hkw"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking good? show us!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-dE-ExP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking good? show us! (available soon)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-dE-ExP">
                                         <rect key="frame" x="10" y="100" width="321.5" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="wBu-Be-11A"/>
@@ -587,7 +587,7 @@ below and hit edit</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEB-48-7hb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4964" y="1299"/>
+            <point key="canvasLocation" x="4964" y="1298.5007496251876"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="TGK-Xp-Kfg">

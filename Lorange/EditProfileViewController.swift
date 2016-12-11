@@ -12,6 +12,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var classList: [Alumni] = []
     var semaphoreForVerdict: DispatchSemaphore?
     var semaphoreForVerdict2: DispatchSemaphore?
+    var semaphoreForPicture: DispatchSemaphore?
     
     @IBOutlet weak var emailBox: UITextField!
     @IBOutlet weak var phoneBox: UITextField!
@@ -79,50 +80,65 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera
             
+            imagePicker.cameraCaptureMode = .photo
+            
+            imagePicker.modalPresentationStyle = .fullScreen
+            
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
     
     
     
-    // 
+    // gives directions to delegate if a picture is selected
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        let date = Date()
-        
-        let calendar = Calendar.current
-        
-        let dayStamp = calendar.component(.year, from: date) + calendar.component(.month, from: date) + calendar.component(.day, from: date)
-        
-        let clockStamp = calendar.component(.hour, from: date) + calendar.component(.minute, from: date) + calendar.component(.second, from: date)
-        
-        let imageName = "\(userID)_\(dayStamp)\(clockStamp)"
+        let imageName = createName()
         
         if (info[UIImagePickerControllerOriginalImage] as? UIImage) != nil
         {
-            let encodedString = (info[UIImagePickerControllerOriginalImage] as? NSData)?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             
-            updatePicture(userID: userID, imageName: imageName, encodedString: encodedString!)
+            let selectedImage = crop(image: originalImage)
+            
+            let selectedImageData = UIImageJPEGRepresentation(selectedImage, 0.1)!
+            
+            let encodedString = selectedImageData.base64EncodedString(options: [])
+            
+            if updatePicture(userID: userID, imageName: imageName, encodedString: encodedString)
+            {
+                self.dismiss(animated: true, completion: nil)
+            }
         }
         else
         {
-            // error
+            // error: info can't be casted to an image
         }
         
-        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    // dismisses the camera if cancelled
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+        dismiss(animated: true, completion: nil)
     }
     
     
     
     // loads new picture to the server and changes the picture reference in the db
     
-    func updatePicture(userID: Int, imageName: String, encodedString: String) {
+    func updatePicture(userID: Int, imageName: String, encodedString: String) -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/picture.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/picture_ios.php")!)
+        
         request.httpMethod = "POST"
         
         let body = "userID=\(userID)&imageName=\(imageName)&encodedString=\(encodedString)"
+        
         request.httpBody = body.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
@@ -136,11 +152,68 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             {
                 // success
             }
+            self.semaphoreForPicture?.signal()
             
         }
+        semaphoreForPicture = DispatchSemaphore.init(value: 0)
+        
         task.resume()
         
+        _ = semaphoreForPicture?.wait(timeout: DispatchTime.distantFuture)
+        
+        return true
     }
+    
+    
+    
+    // creates a unique name for new picture
+    
+    func createName() -> String {
+        
+        let calendar = Calendar(identifier: .gregorian)
+        
+        let dayStamp = calendar.component(.day, from: Date())
+        
+        let monthStamp = calendar.component(.month, from: Date())
+        
+        let yearStamp = calendar.component(.year, from: Date())
+        
+        let hourStamp = calendar.component(.hour, from: Date())
+        
+        let minuteStamp = calendar.component(.minute, from: Date())
+        
+        let secondStamp = calendar.component(.second, from: Date())
+        
+        return "\(userID)_\(yearStamp)_\(monthStamp)_\(dayStamp)_\(hourStamp)\(minuteStamp)\(secondStamp).jpg"
+    }
+    
+    
+    // crops an image
+    
+    func crop(image: UIImage) -> UIImage {
+        
+        let contextImage: UIImage = UIImage(cgImage: image.cgImage!)
+        
+        let contextSize: CGSize = contextImage.size
+        
+        var frame: CGRect
+        
+        if contextSize.height > contextSize.width
+        {
+            frame = CGRect(x: 0, y: (contextSize.height - contextSize.width)/2, width: contextSize.width, height: contextSize.width)
+        }
+        else
+        {
+            frame = CGRect(x: (contextSize.width - contextSize.height)/2, y: 0, width: contextSize.height, height: contextSize.height)
+        }
+        
+        let imageRef: CGImage = contextImage.cgImage!.cropping(to: frame)!
+        
+        let image: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+        
+        return image
+    }
+    
     
     
     
@@ -158,9 +231,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         var verdict = false
         
         var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/edit.php")!)
+        
         request.httpMethod = "POST"
         
         let body = "userID=\(userID)&email=\(email)&phone=\(phone)&job=\(job)&residence=\(residence)&password=\(password)"
+        
         request.httpBody = body.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
@@ -335,7 +410,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                     
                     content.sound = UNNotificationSound.default()
                     
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: getBirthday(alumni: classList[i])), repeats: false)
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: getBirthday(alumni: classList[i]), repeats: false)
                     
                     let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
                     
@@ -362,15 +437,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     // returns the alumni's next birthday as a date
     
-    func getBirthday(alumni: Alumni) -> Date {
+    func getBirthday(alumni: Alumni) -> DateComponents {
         
         let str = alumni.birthDate
         
-        let calendarOfNextBirthday = Calendar.current
+        let calendarOfNextBirthday = Calendar(identifier: .gregorian)
         
         var birthdayDateComponents = DateComponents()
         
-        let dayRange = str.index(str.startIndex, offsetBy: 7)..<str.index(str.endIndex, offsetBy: 0)
+        let dayRange = str.index(str.startIndex, offsetBy: 8)..<str.index(str.endIndex, offsetBy: 0)
         
         birthdayDateComponents.day = Int(str.substring(with: dayRange))
         
@@ -378,16 +453,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         birthdayDateComponents.month = Int(str.substring(with: monthRange))
         
-        birthdayDateComponents.year = 2016
+        birthdayDateComponents.hour = 12
         
-        while Date() >= calendarOfNextBirthday.date(from: birthdayDateComponents)!
-        {
-            birthdayDateComponents.year! = birthdayDateComponents.year! + 1
-        }
+        birthdayDateComponents.minute = 26
         
-        let birthdayDate = calendarOfNextBirthday.date(from: birthdayDateComponents)!
+        birthdayDateComponents.second = 0
         
-        return birthdayDate
+        return DateComponents(calendar: calendarOfNextBirthday, timeZone: .current, month: birthdayDateComponents.month, day: birthdayDateComponents.day, hour: birthdayDateComponents.hour, minute: birthdayDateComponents.minute)
         
     }
 }
@@ -418,28 +490,5 @@ extension EditProfileViewController: UNUserNotificationCenterDelegate {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
