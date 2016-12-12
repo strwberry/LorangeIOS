@@ -453,9 +453,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         birthdayDateComponents.month = Int(str.substring(with: monthRange))
         
-        birthdayDateComponents.hour = 12
+        birthdayDateComponents.hour = 8
         
-        birthdayDateComponents.minute = 26
+        birthdayDateComponents.minute = 0
         
         birthdayDateComponents.second = 0
         
