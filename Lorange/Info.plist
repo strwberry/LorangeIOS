@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>WhatsApp</string>
@@ -32,11 +32,13 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>The app needs your permission to take pictures</string>
+	<string>The app needs to access your camera to take a new profile picture</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>The app needs your permission to locate you</string>
+	<string>The app needs your position to locate you on the map</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>The app needs your permission to locate you</string>
+	<string>The app needs your position to locate you on the map</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>The app needs to access your photo library to take a new profile picture</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
