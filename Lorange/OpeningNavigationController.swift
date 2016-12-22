@@ -13,7 +13,6 @@ class OpeningNavigationController: UINavigationController {
             let locatorMapViewController: UIViewController = contextStoryBoard.instantiateViewController(withIdentifier: "LocatorMap")
             
             viewControllers = [locatorMapViewController]
-            
         }
         else
         {
@@ -45,7 +44,7 @@ class OpeningNavigationController: UINavigationController {
         
         present(loginViewController, animated: true, completion: {
             
-            // perhaps do something like an animation
+            // here is where to put an animation
         })
         
     }

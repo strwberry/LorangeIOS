@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF13B9751E03EFC00042E24C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF13B9741E03EFC00042E24C /* MessageUI.framework */; };
 		BF2071281DC9F27000294FDF /* Alumni.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2071271DC9F27000294FDF /* Alumni.swift */; };
 		BF38916C1DD65DB5002510A7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38916B1DD65DB5002510A7 /* EditProfileViewController.swift */; };
 		BF79EE921DCCD87400DBD26F /* ClassMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF79EE911DCCD87400DBD26F /* ClassMapViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF13B9741E03EFC00042E24C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BF2071271DC9F27000294FDF /* Alumni.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alumni.swift; sourceTree = "<group>"; };
 		BF38916B1DD65DB5002510A7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		BF79EE911DCCD87400DBD26F /* ClassMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassMapViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF13B9751E03EFC00042E24C /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF13B9731E03EFC00042E24C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF13B9741E03EFC00042E24C /* MessageUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BF99C9F41DC77E41000895F7 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +110,7 @@
 				BF99CA141DC77E41000895F7 /* LorangeTests */,
 				BF99CA1F1DC77E41000895F7 /* LorangeUITests */,
 				BF99C9FE1DC77E41000895F7 /* Products */,
+				BF13B9731E03EFC00042E24C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

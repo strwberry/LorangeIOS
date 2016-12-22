@@ -24,7 +24,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var notificationSwitch: UISwitch!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +38,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             notificationSwitch.isOn = false
         }
         
+        observeKeyboardNotivications()
+        
         emailBox.text = email
         phoneBox.text = phone
         jobBox.text = job
@@ -50,11 +51,54 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     
+    // moves the view acording to keyboard movement
+    
+    fileprivate func observeKeyboardNotivications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: .UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    
+    
+    // lifts the view
+    
+    func keyboardShow() {
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.frame = CGRect(x: 0, y: -120, width: self.view.frame.width, height: self.view.frame.height)
+        
+        }, completion: nil)
+    }
+    
+    
+    
+    //lowers the view
+    
+    func keyboardHide() {
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        
+        }, completion: nil)
+        
+    }
+    
+    
+    
     // untoggles the keyboard when user touches elsewhere on the screen
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    /*override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         scrollView.endEditing(true)
+    }*/
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        view.endEditing(true)
     }
     
     
@@ -87,6 +131,34 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
+    
+    
+    
+    // when user clicks on the album button
+    
+    @IBAction func selectPicture(_ sender: UIButton) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary)
+        {
+            let imagePicker = UIImagePickerController()
+            
+            imagePicker.delegate = self
+            
+            imagePicker.allowsEditing = true
+            
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            
+            // imagePicker.modalPresentationStyle = .fullScreen
+            
+            imagePicker.modalPresentationStyle = .popover
+            
+            self.present(imagePicker, animated: true, completion: nil)
+            
+            // imagePicker.popoverPresentationController?.barButtonItem = backButton
+            
+        }
+    }
+    
     
     
     

@@ -151,7 +151,9 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
         {
             annotationView?.annotation = annotation
         }
-        annotationView?.image = UIImage(named: "marker")
+        annotationView?.image = UIImage(named: "marker_border")
+        
+        annotationView?.centerOffset = CGPoint(x: 0, y: -12.5)
         
         let goToProfile = UIButton(type: .infoLight)
         

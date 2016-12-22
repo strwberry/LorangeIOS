@@ -11,6 +11,7 @@ class LoginViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
     }
     
@@ -19,6 +20,7 @@ class LoginViewController: UIViewController {
     // untoggles the keyboard when user touches elsewhere on the screen
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         self.view.endEditing(true)
     }
     

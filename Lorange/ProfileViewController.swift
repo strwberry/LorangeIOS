@@ -1,6 +1,7 @@
 import UIKit
+import MessageUI
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     let userID = UserDefaults.standard.integer(forKey: "userID")
     var profileID: Int?
@@ -15,11 +16,42 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var workBox: UILabel!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var pictureBackground: UIView!
+    @IBOutlet weak var emailButton: UIButton!
+    @IBOutlet weak var whatsappButton: UIButton!
     
     
     
-     
-     // sending whatsapp to a contact
+    // sending email to a contact
+    
+    @IBAction func sendEmail(_ sender: UIButton) {
+        
+        let mailComposeController = MFMailComposeViewController()
+        
+        mailComposeController.mailComposeDelegate = self
+        
+        mailComposeController.setToRecipients([emailBox.text!])
+        
+        mailComposeController.setSubject("Hey buddy!")
+        
+        if MFMailComposeViewController.canSendMail() {
+            
+            self.present(mailComposeController, animated: true, completion: { () -> Void in
+            })
+        }
+    }
+    
+    
+    
+    // sends the user back to the app once the email is sent
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    // sending whatsapp to a contact
     
     @IBAction func sendWhatsapp(_ sender: UIButton) {
         
@@ -40,6 +72,11 @@ class ProfileViewController: UIViewController {
         if profileID != userID
         {
             editButton.isHidden = true
+        }
+        else{
+            emailButton.isHidden = true
+            
+            whatsappButton.isHidden = true
         }
         
         pictureBackground.layer.cornerRadius = pictureBackground.frame.size.width/2
@@ -160,12 +197,15 @@ class ProfileViewController: UIViewController {
             let destinationVC = segue.destination as! EditProfileViewController
             
             destinationVC.email = self.classMate?.email
+            
             destinationVC.phone = self.classMate?.phone
+            
             destinationVC.job = self.classMate?.job
+            
             destinationVC.residence = self.classMate?.residence
+            
             destinationVC.password = self.classMate?.password
         }
     }
 
-    
 }
