@@ -4,15 +4,18 @@ import UserNotifications
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let userID = UserDefaults.standard.integer(forKey: "userID")
+    let network = UserDefaults.standard.string(forKey: "network")
     var email: String?
     var phone: String?
     var job: String?
     var residence: String?
     var password: String?
     var classList: [Alumni] = []
+    var autoLoctorTimer: Timer?
     var semaphoreForVerdict: DispatchSemaphore?
     var semaphoreForVerdict2: DispatchSemaphore?
     var semaphoreForPicture: DispatchSemaphore?
+    
     
     @IBOutlet weak var emailBox: UITextField!
     @IBOutlet weak var phoneBox: UITextField!
@@ -22,6 +25,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var confirmPasswordBox: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var notificationSwitch: UISwitch!
+    @IBOutlet weak var autoLocationSwitch: UISwitch!
+    @IBOutlet weak var positionUpdateText: UILabel!
+    @IBOutlet weak var positionUpdateButton: UIButton!
+    
     
     
     override func viewDidLoad() {
@@ -38,7 +45,24 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             notificationSwitch.isOn = false
         }
         
-        observeKeyboardNotivications()
+        if UserDefaults.standard.bool(forKey: "autoLocation")
+        {
+            autoLocationSwitch.isOn = true
+            
+            positionUpdateText.isHidden = true
+            
+            positionUpdateButton.isHidden = true
+        }
+        else
+        {
+            autoLocationSwitch.isOn = false
+            
+            positionUpdateText.isHidden = false
+            
+            positionUpdateButton.isHidden = false
+        }
+        
+        observeKeyboardNotifications()
         
         emailBox.text = email
         phoneBox.text = phone
@@ -53,7 +77,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     // moves the view acording to keyboard movement
     
-    fileprivate func observeKeyboardNotivications() {
+    fileprivate func observeKeyboardNotifications() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: .UIKeyboardWillShow, object: nil)
         
@@ -100,6 +124,34 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         view.endEditing(true)
     }
+    
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                          SET AUTO LOCATION                                 //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+    
+    // sets the automatic geolocation of the user
+    
+    @IBAction func setAutoLocation(_ sender: Any) {
+        
+        if autoLocationSwitch.isOn
+        {
+            UserDefaults.standard.set(true, forKey: "autoLocation")
+            
+            performSegue(withIdentifier: "segueToUpdateLocation", sender: self)
+        }
+        else
+        {
+            UserDefaults.standard.set(false, forKey: "autoLocation")
+            
+            performSegue(withIdentifier: "segueToUpdateLocation", sender: self)
+        }
+    }
+    
+    
     
     
     
@@ -178,7 +230,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             
             let encodedString = selectedImageData.base64EncodedString(options: [])
             
-            if updatePicture(userID: userID, imageName: imageName, encodedString: encodedString)
+            if updatePicture(network: self.network!, userID: userID, imageName: imageName, encodedString: encodedString)
             {
                 self.dismiss(animated: true, completion: nil)
             }
@@ -203,13 +255,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     // loads new picture to the server and changes the picture reference in the db
     
-    func updatePicture(userID: Int, imageName: String, encodedString: String) -> Bool {
+    func updatePicture(network: String, userID: Int, imageName: String, encodedString: String) -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/picture_ios.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/picture_ios_v1.php")!)
         
         request.httpMethod = "POST"
         
-        let body = "userID=\(userID)&imageName=\(imageName)&encodedString=\(encodedString)"
+        let body = "network=\(network)&userID=\(userID)&imageName=\(imageName)&encodedString=\(encodedString)"
         
         request.httpBody = body.data(using: String.Encoding.utf8)
         
@@ -298,15 +350,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     // sends a request to the db to update info and returns true if ok
     
-    func updateDB(userID: Int, email: String, phone: String, job: String, residence: String, password: String) -> Bool {
+    func updateDB(network: String, userID: Int, email: String, phone: String, job: String, residence: String, password: String) -> Bool {
         
         var verdict = false
         
-        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/edit.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/edit_v1.php")!)
         
         request.httpMethod = "POST"
         
-        let body = "userID=\(userID)&email=\(email)&phone=\(phone)&job=\(job)&residence=\(residence)&password=\(password)"
+        let body = "network=\(network)&userID=\(userID)&email=\(email)&phone=\(phone)&job=\(job)&residence=\(residence)&password=\(password)"
         
         request.httpBody = body.data(using: String.Encoding.utf8)
         
@@ -353,7 +405,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func saveChanges(_ sender: UIButton) {
         
-        if updateDB(userID: self.userID, email: emailBox.text!, phone: phoneBox.text!, job: jobBox.text!, residence: residenceBox.text!, password: passwordBox.text!)
+        if updateDB(network: self.network!, userID: self.userID, email: emailBox.text!, phone: phoneBox.text!, job: jobBox.text!, residence: residenceBox.text!, password: passwordBox.text!)
         {
             performSegue(withIdentifier: "segueToProfile", sender: self)
         }
@@ -395,10 +447,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     // fills the classList array
     
-    func loadClassList() -> Bool {
+    func loadClassList(network: String) -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/class.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/class_v1.php")!)
         request.httpMethod = "POST"
+        
+        let body = "network=\(network)"
+        request.httpBody = body.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
@@ -463,7 +518,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         if notificationSwitch.isOn
         {
-            if loadClassList()
+            if loadClassList(network: self.network!)
             {
                 
                 for i: Int in 0...(classList.count - 1)
@@ -534,6 +589,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         return DateComponents(calendar: calendarOfNextBirthday, timeZone: .current, month: birthdayDateComponents.month, day: birthdayDateComponents.day, hour: birthdayDateComponents.hour, minute: birthdayDateComponents.minute)
         
     }
+    
+    
+    
 }
 
 
@@ -560,6 +618,7 @@ extension EditProfileViewController: UNUserNotificationCenterDelegate {
         
         performSegue(withIdentifier: "segueToBirthdayNotification", sender: sender)
     }
+    
     
 }
 

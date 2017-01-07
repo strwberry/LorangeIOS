@@ -2,6 +2,7 @@ import UIKit
 
 class ClassListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let network = UserDefaults.standard.string(forKey: "network")
     var classList = [Alumni]()
     var semaphoreForVerdict: DispatchSemaphore?
     var semaphoreForImage: DispatchSemaphore?
@@ -37,7 +38,7 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = loadClassList()
+        _ = loadClassList(network: self.network!)
         
         TableView.dataSource = self
         
@@ -48,10 +49,14 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // Sends a request to server to fill the classList
     
-    func loadClassList() -> Bool {
+    func loadClassList(network: String) -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/class.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/class_v1.php")!)
         request.httpMethod = "POST"
+        
+        let body = "network=\(network)"
+        request.httpBody = body.data(using: String.Encoding.utf8)
+
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in

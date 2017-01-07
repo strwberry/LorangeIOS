@@ -10,9 +10,19 @@ class OpeningNavigationController: UINavigationController {
         {
             let contextStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let locatorMapViewController: UIViewController = contextStoryBoard.instantiateViewController(withIdentifier: "LocatorMap")
+            if usesAutoLocation()
+            {
+                let classMapViewController: UIViewController = contextStoryBoard.instantiateViewController(withIdentifier: "ClassMap")
+                
+                viewControllers = [classMapViewController]
+            }
+            else
+            {
+                let locatorMapViewController: UIViewController = contextStoryBoard.instantiateViewController(withIdentifier: "LocatorMap")
+                
+                viewControllers = [locatorMapViewController]
+            }
             
-            viewControllers = [locatorMapViewController]
         }
         else
         {
@@ -28,10 +38,16 @@ class OpeningNavigationController: UINavigationController {
     fileprivate func isLoggedIn() -> Bool {
         
         return UserDefaults.standard.bool(forKey: "isLoggedIn")
-        
-        // return false
     }
     
+    
+    
+    // defines if the user is using auto location
+    
+    fileprivate func usesAutoLocation() -> Bool {
+        
+        return UserDefaults.standard.bool(forKey: "autoLocation")
+    }
     
     
     // displays the login view

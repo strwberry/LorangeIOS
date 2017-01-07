@@ -5,6 +5,7 @@ import CoreLocation
 class ClassMapViewController: UIViewController, MKMapViewDelegate {
     
     let userID = UserDefaults.standard.integer(forKey: "userID")
+    let network = UserDefaults.standard.string(forKey: "network")
     var positionLat: Int!
     var positionLng: Int!
     var classList = [Alumni]()
@@ -21,7 +22,7 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
         
         Map.delegate = self
         
-        _ = loadClassList(userID: self.userID, positionLat: self.positionLat, positionLng: self.positionLng)
+        _ = loadClassList(network: self.network!, userID: self.userID, positionLat: self.positionLat, positionLng: self.positionLng)
         
         let region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(46.510696, 6.619853), span: MKCoordinateSpanMake(120.0, 120.0))
         
@@ -54,12 +55,12 @@ class ClassMapViewController: UIViewController, MKMapViewDelegate {
     
     // Sends a request to server to fill the classList
     
-    func loadClassList(userID: Int, positionLat: Int, positionLng: Int) -> Bool {
+    func loadClassList(network: String, userID: Int, positionLat: Int, positionLng: Int) -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/marker.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/marker_v1.php")!)
         request.httpMethod = "POST"
         
-        let body = "userID=\(userID)&positionLat=\(positionLat)&positionLng=\(positionLng)"
+        let body = "network=\(network)&userID=\(userID)&positionLat=\(positionLat)&positionLng=\(positionLng)"
         request.httpBody = body.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {

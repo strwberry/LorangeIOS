@@ -3,6 +3,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     var userID: Int?
+    var network: String?
     var semaphoreForVerdict: DispatchSemaphore?
     
     @IBOutlet weak var emailBox: UITextField!
@@ -72,7 +73,7 @@ class LoginViewController: UIViewController {
         
         var verdict = false
         
-        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/login.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/login_v1.php")!)
         request.httpMethod = "POST"
         
         let body = "email=\(email)&password=\(password)"
@@ -97,6 +98,8 @@ class LoginViewController: UIViewController {
                     if json["success"] as! Bool! == true
                     {
                         self.userID = json["userID"] as! Int!
+                        
+                        self.network = json["network"] as! String!
                         
                         verdict = true
                     }
@@ -133,6 +136,8 @@ class LoginViewController: UIViewController {
             UserDefaults.standard.set(true, forKey: "isLoggedIn")
             
             UserDefaults.standard.set(self.userID, forKey: "userID")
+            
+            UserDefaults.standard.set(self.network, forKey: "network")
             
             UserDefaults.standard.synchronize()
         }

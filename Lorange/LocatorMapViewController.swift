@@ -4,6 +4,8 @@ import CoreLocation
 
 class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    let userID = UserDefaults.standard.integer(forKey: "userID")
+    let network = UserDefaults.standard.string(forKey: "network")
     let manager = CLLocationManager()
     var positionLat: Int?
     var positionLng: Int?
@@ -12,6 +14,10 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var Map: MKMapView!
     @IBOutlet weak var AddressBox: UITextField!
     @IBOutlet weak var viewBox: UIView!
+    @IBOutlet weak var aimGraphicElement: UIImageView!
+    @IBOutlet weak var buttonGraphicElement: UIButton!
+    @IBOutlet weak var searchGraphicElement: UIView!
+    @IBOutlet weak var centerGraphicElement: UIButton!
     
     
     
@@ -22,9 +28,27 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         viewBox.clipsToBounds = true
         
-        self.Map.delegate = self
+        Map.delegate = self
         
-        locateUserAndStop()
+        locateUser()
+        
+        if UserDefaults.standard.bool(forKey: "autoLocation")
+        {
+            buttonGraphicElement.isHidden = true
+            
+            searchGraphicElement.isHidden = true
+            
+            centerGraphicElement.isHidden = true
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3)
+            {
+                // self.manager.stopUpdatingLocation()
+                
+                self.performSegue(withIdentifier: "segueToClassMap", sender: self)
+            }
+
+        }
+        
     }
     
     
@@ -33,7 +57,7 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     @IBAction func locateUser(_ sender: UIButton) {
         
-        locateUserAndStop()
+        locateUser()
     }
     
     
@@ -94,19 +118,47 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     // runs the location manager for 3 secs
     
-    func locateUserAndStop() -> Void {
+    func locateUser() -> Void {
+        
         manager.delegate = self
         
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        manager.requestWhenInUseAuthorization()
-        
-        manager.startUpdatingLocation()
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3)
+        if UserDefaults.standard.bool(forKey: "autoLocation")
         {
-            self.manager.stopUpdatingLocation()
+            manager.desiredAccuracy = kCLLocationAccuracyKilometer
+            
+            manager.requestAlwaysAuthorization()
+            
+            manager.startUpdatingLocation()
+            
+            manager.allowsBackgroundLocationUpdates = true
         }
+        else
+        {
+            manager.desiredAccuracy = kCLLocationAccuracyBest
+            
+            manager.requestWhenInUseAuthorization()
+            
+            manager.startUpdatingLocation()
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3)
+            {
+                self.manager.stopUpdatingLocation()
+            }
+        }
+        
+    }
+    
+    
+    
+    // if autolocation is on, monitors location changes
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        
+        if UserDefaults.standard.bool(forKey: "autoLocation")
+        {
+            manager.startMonitoringSignificantLocationChanges()
+        }
+        
     }
     
     
@@ -122,8 +174,47 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         let region = MKCoordinateRegion(center: position, span: MKCoordinateSpanMake(self.ZOOM, self.ZOOM))
         
         Map.setRegion(region, animated: true)
+        
+        if UserDefaults.standard.bool(forKey: "autoLocation")
+        {
+            let positionLat = Int(userLocation.coordinate.latitude * 1000000)
+            
+            let positionLng = Int(userLocation.coordinate.longitude * 1000000)
+            
+            UserDefaults.standard.set(positionLat, forKey: "positionLat")
+            
+            UserDefaults.standard.set(positionLng, forKey: "positionLng")
+            
+            updateLocation(network: network!, userID: userID, positionLat: positionLat, positionLng: positionLng)
+        }
+        
     }
     
+    
+    
+    // sends new location to server
+    
+    func updateLocation(network: String, userID: Int, positionLat: Int, positionLng: Int) {
+        
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/locator_v1.php")!)
+        request.httpMethod = "POST"
+        
+        let body = "network=\(network)&userID=\(userID)&positionLat=\(positionLat)&positionLng=\(positionLng)"
+        request.httpBody = body.data(using: String.Encoding.utf8)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            guard error == nil, let _ = data else{
+                print("!!! URL_SESSION RETURNED AN ERROR OR NIL DATA !!!")
+                return
+            }
+            
+        }
+        
+        task.resume()
+    }
+
     
     
     // untoggles the keyboard when user touches outside the textfield

@@ -4,6 +4,7 @@ import MessageUI
 class ProfileViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     let userID = UserDefaults.standard.integer(forKey: "userID")
+    let network = UserDefaults.standard.string(forKey: "network")
     var profileID: Int?
     var classMate: Alumni?
     var semaphoreForVerdict: DispatchSemaphore?
@@ -85,7 +86,7 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
         
         pictureBox.clipsToBounds = true
         
-        _ = loadProfile(userID: profileID!)
+        _ = loadProfile(network: self.network!, userID: profileID!)
         
         fillBoxes()
         
@@ -95,12 +96,12 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
     
     // Sends a request to server to get details about the class mate
     
-    func loadProfile(userID: Int) -> Bool {
+    func loadProfile(network: String, userID: Int) -> Bool {
         
-        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/profile.php")!)
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/profile_v1.php")!)
         request.httpMethod = "POST"
         
-        let body = "userID=\(userID)"
+        let body = "network=\(network)&userID=\(userID)"
         request.httpBody = body.data(using: String.Encoding.utf8)
         
         

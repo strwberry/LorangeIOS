@@ -39,6 +39,10 @@
 	<string>The app needs your position to locate you on the map</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>The app needs to access your photo library to take a new profile picture</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
