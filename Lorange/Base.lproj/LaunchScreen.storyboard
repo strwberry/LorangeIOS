@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,16 +22,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_240" translatesAutoresizingMaskIntoConstraints="NO" id="NgM-sZ-Jik">
+                                <rect key="frame" x="67.5" y="183.5" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="ark-n7-JE2"/>
+                                    <constraint firstAttribute="height" constant="240" id="hrv-TV-saq"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIH-vd-aaN">
-                                <rect key="frame" x="16" y="309.5" width="343" height="48"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
+                                <rect key="frame" x="16" y="443.5" width="343" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
                                 <color key="textColor" red="0.18039215689999999" green="0.2274509804" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="WIH-vd-aaN" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="KwS-n6-Zyu"/>
+                            <constraint firstItem="WIH-vd-aaN" firstAttribute="top" secondItem="NgM-sZ-Jik" secondAttribute="bottom" constant="20" id="37O-lW-QMd"/>
+                            <constraint firstItem="NgM-sZ-Jik" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="JED-tG-jtw"/>
+                            <constraint firstItem="NgM-sZ-Jik" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-30" id="L7p-eb-Cbb"/>
                             <constraint firstItem="WIH-vd-aaN" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="nZT-ql-Kbo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WIH-vd-aaN" secondAttribute="trailing" id="tas-De-agX"/>
                         </constraints>
@@ -42,4 +51,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo_240" width="240" height="240"/>
+    </resources>
 </document>

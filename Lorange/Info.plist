@@ -34,11 +34,11 @@
 	<key>NSCameraUsageDescription</key>
 	<string>The app needs to access your camera to take a new profile picture</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>The app needs your position to locate you on the map</string>
+	<string>The app needs your position to help you sharing your location on the map</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>The app needs your position to locate you on the map</string>
+	<string>The app needs your position to help you sharing your location on the map</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>The app needs to access your photo library to take a new profile picture</string>
+	<string>The app needs to access your photo library so you can select a new profile picture</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

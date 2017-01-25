@@ -5,6 +5,10 @@ class OpeningNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.isNavigationBarHidden = true
+        
+        navigationController?.isNavigationBarHidden = true
+        
         
         if isLoggedIn()
         {

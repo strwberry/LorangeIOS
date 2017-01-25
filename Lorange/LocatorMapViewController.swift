@@ -18,6 +18,7 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var buttonGraphicElement: UIButton!
     @IBOutlet weak var searchGraphicElement: UIView!
     @IBOutlet weak var centerGraphicElement: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     
     
     
@@ -39,6 +40,8 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
             searchGraphicElement.isHidden = true
             
             centerGraphicElement.isHidden = true
+            
+            logoutButton.isUserInteractionEnabled = false
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3)
             {

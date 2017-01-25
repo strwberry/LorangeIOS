@@ -186,27 +186,4 @@ class ProfileViewController: UIViewController, MFMailComposeViewControllerDelega
         session.resume()
         
     }
-    
-    
-    
-    // gets called whenever a segue is about to get triggered
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "segueToEditProfile"
-        {
-            let destinationVC = segue.destination as! EditProfileViewController
-            
-            destinationVC.email = self.classMate?.email
-            
-            destinationVC.phone = self.classMate?.phone
-            
-            destinationVC.job = self.classMate?.job
-            
-            destinationVC.residence = self.classMate?.residence
-            
-            destinationVC.password = self.classMate?.password
-        }
-    }
-
 }
