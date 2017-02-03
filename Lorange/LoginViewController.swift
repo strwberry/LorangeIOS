@@ -4,6 +4,7 @@ class LoginViewController: UIViewController {
     
     var userID: Int?
     var network: String?
+    var active: Int?
     var semaphoreForVerdict: DispatchSemaphore?
     
     @IBOutlet weak var emailBox: UITextField!
@@ -27,44 +28,48 @@ class LoginViewController: UIViewController {
     
     
     
-    // checking if the login is valid or not
+    // when login button gets clicked
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    @IBAction func loginClicked(_ sender: UIButton) {
         
-        if identifier == "segueToLocatorMap" {
+        if emailBox.text!.isEmpty
+        {
+            emailBox.attributedPlaceholder = NSAttributedString(string: "Enter email", attributes: [NSForegroundColorAttributeName:UIColor.red])
+        }
+        else if passwordBox.text!.isEmpty
+        {
+            passwordBox.attributedPlaceholder = NSAttributedString(string: "Enter password", attributes: [NSForegroundColorAttributeName:UIColor.red])
+        }
+        else
+        {
+            self.emailBox.resignFirstResponder()
             
-            if emailBox.text!.isEmpty
+            let validLogin = CheckLogin(email: "\(emailBox.text!.lowercased())", password: "\(passwordBox.text!)")
+            
+            if validLogin
             {
-                emailBox.attributedPlaceholder = NSAttributedString(string: "Enter email", attributes: [NSForegroundColorAttributeName:UIColor.red])
-                
-                return false
-            }
-            else if passwordBox.text!.isEmpty
-            {
-                passwordBox.attributedPlaceholder = NSAttributedString(string: "Enter password", attributes: [NSForegroundColorAttributeName:UIColor.red])
-                
-                return false
-            }
-            else
-            {
-                self.emailBox.resignFirstResponder()
-                
-                let validLogin = CheckLogin(email: "\(emailBox.text!.lowercased())", password: "\(passwordBox.text!)")
-                
-                if validLogin
+                if active! > 1
                 {
-                    return true
+                    performSegue(withIdentifier: "segueToLocatorMap", sender: self)
                 }
                 else
                 {
-                    return false
+                    performSegue(withIdentifier: "segueToFirstLog", sender: self)
                 }
             }
-            
-        } else { return false}
-        
+            else
+            {
+                let alert = UIAlertController(title: "Login failed", message: "The email or password you used was incorrect", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                
+                alert.addAction(okAction)
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
-        
+    
     
     
     // sending the request to server and collecting the userID if accepted
@@ -101,6 +106,8 @@ class LoginViewController: UIViewController {
                         
                         self.network = json["network"] as! String!
                         
+                        self.active = json["active"] as! Int!
+                        
                         verdict = true
                     }
                 }
@@ -131,7 +138,7 @@ class LoginViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "segueToLocatorMap"
+        if segue.identifier == "segueToLocatorMap" || segue.identifier == "segueToFirstLog"
         {
             UserDefaults.standard.set(true, forKey: "isLoggedIn")
             

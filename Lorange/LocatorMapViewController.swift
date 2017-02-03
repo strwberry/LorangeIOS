@@ -41,11 +41,39 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
             
             centerGraphicElement.isHidden = true
             
-            logoutButton.isUserInteractionEnabled = false
+            aimGraphicElement.isHidden = true
+            
+            logoutButton.isHidden = true
+            
+            let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+            
+            activityIndicator.center = self.view.center
+            
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+            
+            view.addSubview(activityIndicator)
+            
+            activityIndicator.startAnimating()
+            
+            let textView = UITextView(frame: CGRect(x: 0.0, y: self.view.frame.height - 50.0, width: self.view.frame.width, height: 50.0))
+            
+            textView.text = "Initializing auto-location..."
+            
+            textView.textAlignment = NSTextAlignment.center
+            
+            textView.backgroundColor = UIColor.white
+            
+            textView.textColor = UIColor(red: 94/255, green: 94/255, blue: 94/255, alpha: 1)
+            
+            textView.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightThin)
+            
+            view.addSubview(textView)
+            
+            UIApplication.shared.beginIgnoringInteractionEvents()
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3)
             {
-                // self.manager.stopUpdatingLocation()
+                UIApplication.shared.endIgnoringInteractionEvents()
                 
                 self.performSegue(withIdentifier: "segueToClassMap", sender: self)
             }

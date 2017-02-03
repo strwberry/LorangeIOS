@@ -29,6 +29,9 @@
 		BFBBE42E1E3769730046031A /* EditPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBBE42D1E3769730046031A /* EditPictureViewController.swift */; };
 		BFBBE4301E3769C30046031A /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBBE42F1E3769C30046031A /* EditInfoViewController.swift */; };
 		BFBBE4321E376A570046031A /* EditNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBBE4311E376A570046031A /* EditNotificationsViewController.swift */; };
+		BFBC98641E423A48008B218E /* FirstLogNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBC98631E423A48008B218E /* FirstLogNameViewController.swift */; };
+		BFBC98661E423D3F008B218E /* FirstLogBirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBC98651E423D3F008B218E /* FirstLogBirthdayViewController.swift */; };
+		BFBC98681E423D75008B218E /* FirstLogAutoLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBC98671E423D75008B218E /* FirstLogAutoLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		BFBBE42D1E3769730046031A /* EditPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPictureViewController.swift; sourceTree = "<group>"; };
 		BFBBE42F1E3769C30046031A /* EditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		BFBBE4311E376A570046031A /* EditNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNotificationsViewController.swift; sourceTree = "<group>"; };
+		BFBC98631E423A48008B218E /* FirstLogNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstLogNameViewController.swift; path = ../FirstLogNameViewController.swift; sourceTree = "<group>"; };
+		BFBC98651E423D3F008B218E /* FirstLogBirthdayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLogBirthdayViewController.swift; sourceTree = "<group>"; };
+		BFBC98671E423D75008B218E /* FirstLogAutoLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLogAutoLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,9 @@
 				BF943A831DD1BE9600E9E890 /* OpeningNavigationController.swift */,
 				BF2071271DC9F27000294FDF /* Alumni.swift */,
 				BF99CA021DC77E41000895F7 /* LoginViewController.swift */,
+				BFBC98631E423A48008B218E /* FirstLogNameViewController.swift */,
+				BFBC98651E423D3F008B218E /* FirstLogBirthdayViewController.swift */,
+				BFBC98671E423D75008B218E /* FirstLogAutoLocationViewController.swift */,
 				BF9CF0191DC8AD38004E9F0A /* LocatorMapViewController.swift */,
 				BF79EE911DCCD87400DBD26F /* ClassMapViewController.swift */,
 				BF79EE931DCE1A2F00DBD26F /* ClassListViewController.swift */,
@@ -327,13 +336,16 @@
 				BFBBE4321E376A570046031A /* EditNotificationsViewController.swift in Sources */,
 				BF9E7C0E1DDB4F3E00D1445A /* BirthdayNotificationViewController.swift in Sources */,
 				BF2071281DC9F27000294FDF /* Alumni.swift in Sources */,
+				BFBC98681E423D75008B218E /* FirstLogAutoLocationViewController.swift in Sources */,
 				BF99CA031DC77E41000895F7 /* LoginViewController.swift in Sources */,
 				BF79EE941DCE1A2F00DBD26F /* ClassListViewController.swift in Sources */,
 				BF943A841DD1BE9600E9E890 /* OpeningNavigationController.swift in Sources */,
 				BF9D2F5B1DD0880200D80044 /* ProfileViewController.swift in Sources */,
 				BF99CA011DC77E41000895F7 /* AppDelegate.swift in Sources */,
 				BFBBE4301E3769C30046031A /* EditInfoViewController.swift in Sources */,
+				BFBC98641E423A48008B218E /* FirstLogNameViewController.swift in Sources */,
 				BF79EE921DCCD87400DBD26F /* ClassMapViewController.swift in Sources */,
+				BFBC98661E423D3F008B218E /* FirstLogBirthdayViewController.swift in Sources */,
 				BFBBE42E1E3769730046031A /* EditPictureViewController.swift in Sources */,
 				BF38916C1DD65DB5002510A7 /* EditProfileViewController.swift in Sources */,
 				BFBBE42C1E3768CB0046031A /* EditPositionViewController.swift in Sources */,

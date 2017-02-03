@@ -4,6 +4,7 @@ import UserNotifications
 class EditNotificationsViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     let network = UserDefaults.standard.string(forKey: "network")
+    let userID = UserDefaults.standard.integer(forKey: "userID")
     var classList: [Alumni] = []
     var semaphoreForVerdict: DispatchSemaphore?
     
@@ -132,6 +133,8 @@ class EditNotificationsViewController: UIViewController, UNUserNotificationCente
                     })
                 }
                 UserDefaults.standard.set(true, forKey: "notifications")
+                
+                _ = editNotification(network: network!, userID: userID, notification: 1)
             }
         }
         else
@@ -139,6 +142,8 @@ class EditNotificationsViewController: UIViewController, UNUserNotificationCente
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             
             UserDefaults.standard.set(false, forKey: "notifications")
+            
+            _ = editNotification(network: network!, userID: userID, notification: 0)
         }
     }
     
@@ -170,6 +175,59 @@ class EditNotificationsViewController: UIViewController, UNUserNotificationCente
         
         return DateComponents(calendar: calendarOfNextBirthday, timeZone: .current, month: birthdayDateComponents.month, day: birthdayDateComponents.day, hour: birthdayDateComponents.hour, minute: birthdayDateComponents.minute)
         
+    }
+    
+    
+    
+    // edits notification in the database
+    
+    func editNotification(network: String, userID: Int, notification: Int) -> Bool {
+        
+        var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/notification_v1.php")!)
+        request.httpMethod = "POST"
+        
+        let body = "network=\(network)&userID=\(userID)&notification=\(notification)"
+        request.httpBody = body.data(using: String.Encoding.utf8)
+        
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            guard error == nil, let data = data else{
+                print("!!! URL_SESSION RETURNED AN ERROR OR NIL DATA !!!")
+                return
+            }
+            
+            do
+            {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
+                
+                if let json = json
+                {
+                    
+                    if !(json["success"]! as! Bool)
+                    {
+                        print("!!! PHP ERROR: \(error) !!!")
+                    }
+                }
+                
+            }
+            catch let error as NSError
+            {
+                print("!!! JSON ERROR: \(error) !!!")
+            }
+            
+            self.semaphoreForVerdict?.signal()
+            
+        }
+        
+        semaphoreForVerdict = DispatchSemaphore.init(value: 0)
+        
+        task.resume()
+        
+        _ = semaphoreForVerdict?.wait(timeout: DispatchTime.distantFuture)
+        
+        return true
     }
     
     

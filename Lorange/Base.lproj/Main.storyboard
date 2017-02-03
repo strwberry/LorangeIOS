@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,6 +10,233 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--First Log Name View Controller-->
+        <scene sceneID="bM1-QL-u0f">
+            <objects>
+                <viewController storyboardIdentifier="firstLogName" id="t51-sM-DQb" customClass="FirstLogNameViewController" customModule="Lorange" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xgd-sJ-Uqq"/>
+                        <viewControllerLayoutGuide type="bottom" id="EQz-vd-uyu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gHk-zh-sc2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-co-pg4">
+                                <rect key="frame" x="120" y="410" width="80" height="40"/>
+                                <color key="backgroundColor" red="0.83518175092445412" green="0.25290788084363769" blue="0.28420046846466129" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JH9-oZ-VF1"/>
+                                    <constraint firstAttribute="width" constant="80" id="Pkb-qD-Z2p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <state key="normal" title="NEXT">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="MUt-TC-UUV" kind="show" identifier="segueToFirstLogBirthday" id="RhZ-vP-YAD"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Welcome to strwberry. You are three small steps away from starting to use the app . First, How do you want to be called?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwW-1v-OOq">
+                                <rect key="frame" x="0.0" y="30" width="320" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="Jes-WK-TsM"/>
+                                </constraints>
+                                <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X0j-Di-d6w">
+                                <rect key="frame" x="10" y="150" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="90N-BL-bx7"/>
+                                </constraints>
+                                <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jhr-IS-Voc">
+                                <rect key="frame" x="10" y="200" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7c1-t5-O8D"/>
+                                </constraints>
+                                <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jhr-IS-Voc" firstAttribute="leading" secondItem="gHk-zh-sc2" secondAttribute="leading" constant="10" id="4fD-A6-Jbr"/>
+                            <constraint firstAttribute="trailing" secondItem="VwW-1v-OOq" secondAttribute="trailing" id="6Mg-Ha-1NI"/>
+                            <constraint firstItem="EQz-vd-uyu" firstAttribute="top" secondItem="Iib-co-pg4" secondAttribute="bottom" constant="30" id="API-ZX-fK7"/>
+                            <constraint firstItem="X0j-Di-d6w" firstAttribute="top" secondItem="VwW-1v-OOq" secondAttribute="bottom" constant="30" id="NQu-Mz-78k"/>
+                            <constraint firstItem="X0j-Di-d6w" firstAttribute="leading" secondItem="gHk-zh-sc2" secondAttribute="leading" constant="10" id="Pjc-aP-jLe"/>
+                            <constraint firstItem="jhr-IS-Voc" firstAttribute="top" secondItem="X0j-Di-d6w" secondAttribute="bottom" constant="10" id="U4P-NX-zWM"/>
+                            <constraint firstItem="VwW-1v-OOq" firstAttribute="leading" secondItem="gHk-zh-sc2" secondAttribute="leading" id="fko-bj-ueJ"/>
+                            <constraint firstAttribute="trailing" secondItem="jhr-IS-Voc" secondAttribute="trailing" constant="10" id="hLl-H1-OPm"/>
+                            <constraint firstAttribute="trailing" secondItem="X0j-Di-d6w" secondAttribute="trailing" constant="10" id="khu-Ri-iLU"/>
+                            <constraint firstItem="VwW-1v-OOq" firstAttribute="top" secondItem="xgd-sJ-Uqq" secondAttribute="bottom" constant="10" id="qzA-Tn-78L"/>
+                            <constraint firstItem="Iib-co-pg4" firstAttribute="centerX" secondItem="gHk-zh-sc2" secondAttribute="centerX" id="tYZ-QM-Bon"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="firstNameBox" destination="X0j-Di-d6w" id="Qsg-e1-F53"/>
+                        <outlet property="lastNameBox" destination="jhr-IS-Voc" id="jnr-9c-PZE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j0H-fu-Itp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2655" y="-1861"/>
+        </scene>
+        <!--First Log Birthday View Controller-->
+        <scene sceneID="o2h-jM-azI">
+            <objects>
+                <viewController storyboardIdentifier="firstLogBirthday" id="MUt-TC-UUV" customClass="FirstLogBirthdayViewController" customModule="Lorange" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Tk-Rn-y9T"/>
+                        <viewControllerLayoutGuide type="bottom" id="QSf-50-Fa4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ejP-be-4Ig">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Well done! Another two answers and you'r good to go. Now, when were you born?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ca5-O4-DGa">
+                                <rect key="frame" x="0.0" y="30" width="320" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="9mc-rO-bN7"/>
+                                </constraints>
+                                <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <datePicker alpha="0.55000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hBM-uV-VQh">
+                                <rect key="frame" x="0.0" y="110" width="320" height="150"/>
+                                <color key="tintColor" red="0.83529411760000005" green="0.25098039220000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="fAn-WU-vDx"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="507651041.53395897">
+                                    <!--2017-02-01 14:10:41 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9d-Q0-mg5">
+                                <rect key="frame" x="120" y="410" width="80" height="40"/>
+                                <color key="backgroundColor" red="0.83529411760000005" green="0.25098039220000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="kyz-MC-2Sr"/>
+                                    <constraint firstAttribute="height" constant="40" id="z7b-bB-JAD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <state key="normal" title="NEXT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="xmC-M4-Vf0" kind="show" identifier="segueToFirstLogCommunity" id="z3Q-8u-Ml4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ca5-O4-DGa" secondAttribute="trailing" id="8aZ-52-BUu"/>
+                            <constraint firstItem="hBM-uV-VQh" firstAttribute="leading" secondItem="ejP-be-4Ig" secondAttribute="leading" id="E5X-hV-hTI"/>
+                            <constraint firstAttribute="trailing" secondItem="hBM-uV-VQh" secondAttribute="trailing" id="NCM-cw-IGE"/>
+                            <constraint firstItem="Ca5-O4-DGa" firstAttribute="leading" secondItem="ejP-be-4Ig" secondAttribute="leading" id="Odp-tB-47A"/>
+                            <constraint firstItem="Ca5-O4-DGa" firstAttribute="top" secondItem="4Tk-Rn-y9T" secondAttribute="bottom" constant="10" id="e7r-S6-LKJ"/>
+                            <constraint firstItem="QSf-50-Fa4" firstAttribute="top" secondItem="t9d-Q0-mg5" secondAttribute="bottom" constant="30" id="isX-wY-oQW"/>
+                            <constraint firstItem="hBM-uV-VQh" firstAttribute="top" secondItem="Ca5-O4-DGa" secondAttribute="bottom" constant="10" id="k89-d8-T3Q"/>
+                            <constraint firstItem="t9d-Q0-mg5" firstAttribute="centerX" secondItem="ejP-be-4Ig" secondAttribute="centerX" id="pTA-Wy-32Z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="birthdayBox" destination="hBM-uV-VQh" id="Tft-26-Lo2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Efr-EV-VBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3396" y="-1861"/>
+        </scene>
+        <!--First Log Auto Location View Controller-->
+        <scene sceneID="rPC-uP-6QW">
+            <objects>
+                <viewController storyboardIdentifier="firstLogCommunity" id="xmC-M4-Vf0" customClass="FirstLogAutoLocationViewController" customModule="Lorange" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DAu-Rg-NN2"/>
+                        <viewControllerLayoutGuide type="bottom" id="gZv-bo-6jl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rQE-7V-j4e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4k-4M-Xxf">
+                                <rect key="frame" x="0.0" y="30" width="320" height="160"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="1OP-TJ-ute"/>
+                                </constraints>
+                                <string key="text">Finally, by default, the app updates your position on the map automatically (with a one kilometer precision). If you want to set your position manually, unflip the switch below. You can always modify this option in "edit profile".</string>
+                                <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z4-FQ-nlf">
+                                <rect key="frame" x="120" y="410" width="80" height="40"/>
+                                <color key="backgroundColor" red="0.83529411760000005" green="0.25098039220000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Kp5-gR-BqC"/>
+                                    <constraint firstAttribute="height" constant="40" id="XHp-sc-MAM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <state key="normal" title="DONE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="ijc-M4-Bk7" kind="show" identifier="segueToApp" id="QK8-nf-Trz"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDO-wY-5Kc">
+                                <rect key="frame" x="135.5" y="220" width="51" height="31"/>
+                                <color key="onTintColor" red="0.83529411760000005" green="0.25098039220000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aDO-wY-5Kc" firstAttribute="top" secondItem="J4k-4M-Xxf" secondAttribute="bottom" constant="30" id="0IK-mO-7xi"/>
+                            <constraint firstItem="2z4-FQ-nlf" firstAttribute="centerX" secondItem="rQE-7V-j4e" secondAttribute="centerX" id="3ja-bc-0h8"/>
+                            <constraint firstAttribute="trailing" secondItem="J4k-4M-Xxf" secondAttribute="trailing" id="6nj-eP-0Vx"/>
+                            <constraint firstItem="aDO-wY-5Kc" firstAttribute="centerX" secondItem="rQE-7V-j4e" secondAttribute="centerX" id="TuN-JM-C4i"/>
+                            <constraint firstItem="J4k-4M-Xxf" firstAttribute="leading" secondItem="rQE-7V-j4e" secondAttribute="leading" id="V61-RF-73P"/>
+                            <constraint firstItem="gZv-bo-6jl" firstAttribute="top" secondItem="2z4-FQ-nlf" secondAttribute="bottom" constant="30" id="ul1-bw-fOa"/>
+                            <constraint firstItem="J4k-4M-Xxf" firstAttribute="top" secondItem="DAu-Rg-NN2" secondAttribute="bottom" constant="10" id="us3-6F-X2O"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="autoLocateSwitch" destination="aDO-wY-5Kc" id="WdP-xj-Csb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gjd-ZT-m4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4136.25" y="-1863.75"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -19,11 +246,11 @@
                         <viewControllerLayoutGuide type="bottom" id="L3G-3G-VrG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMD MBA 2015" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgF-mU-A6w">
-                                <rect key="frame" x="20" y="127" width="374" height="27"/>
+                                <rect key="frame" x="16" y="127" width="288" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="QxC-0s-K3m"/>
                                 </constraints>
@@ -32,7 +259,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bMq-Ua-Qav">
-                                <rect key="frame" x="0.0" y="224.66666666666669" width="414" height="40.000000000000057"/>
+                                <rect key="frame" x="0.0" y="224.5" width="320" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="eV3-2r-g0x"/>
@@ -42,7 +269,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldl-zv-qw8">
-                                <rect key="frame" x="0.0" y="267.66666666666669" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="267.5" width="320" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="EaD-3A-pE1"/>
@@ -52,7 +279,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cre-Vd-9va">
-                                <rect key="frame" x="167" y="327.66666666666669" width="80" height="40"/>
+                                <rect key="frame" x="120" y="327.5" width="80" height="40"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9J3-Sb-ViN"/>
@@ -68,11 +295,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="ijc-M4-Bk7" kind="presentation" identifier="segueToLocatorMap" id="cyh-rM-Q0d"/>
+                                    <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hru-dj-73I"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently shaping the future of business" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhO-uo-jIc">
-                                <rect key="frame" x="20" y="173" width="374" height="20.666666666666657"/>
+                                <rect key="frame" x="16" y="173" width="288" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="wlc-UB-MlR"/>
                                 </constraints>
@@ -103,6 +330,8 @@
                     <connections>
                         <outlet property="emailBox" destination="bMq-Ua-Qav" id="oep-gb-gv5"/>
                         <outlet property="passwordBox" destination="ldl-zv-qw8" id="Xnk-Mh-Qr4"/>
+                        <segue destination="t51-sM-DQb" kind="show" identifier="segueToFirstLog" id="ewn-7O-kTp"/>
+                        <segue destination="ijc-M4-Bk7" kind="show" identifier="segueToLocatorMap" id="i31-R7-ib7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -118,14 +347,14 @@
                         <viewControllerLayoutGuide type="bottom" id="LSD-HA-jhg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="K0A-9p-LYR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JMA-la-uhp">
-                                <rect key="frame" x="0.0" y="20" width="414" height="666"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="410"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGb-Ya-yAG">
-                                <rect key="frame" x="0.0" y="686" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ogc-Td-ItH"/>
@@ -139,14 +368,14 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aim" translatesAutoresizingMaskIntoConstraints="NO" id="aG1-sU-2QQ">
-                                <rect key="frame" x="182" y="344" width="50" height="50"/>
+                                <rect key="frame" x="135" y="216" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="dhU-Kn-7i1"/>
                                     <constraint firstAttribute="width" constant="50" id="jWM-S0-yhp"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="TbW-QQ-9aE">
-                                <rect key="frame" x="82" y="40" width="250" height="40"/>
+                                <rect key="frame" x="35" y="40" width="250" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NRp-Kh-aJv">
                                         <rect key="frame" x="9" y="5" width="200" height="30"/>
@@ -172,7 +401,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jY-3B-rt8">
-                                <rect key="frame" x="167" y="403" width="80" height="40"/>
+                                <rect key="frame" x="120" y="275" width="80" height="40"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="4xT-XX-08w"/>
@@ -189,7 +418,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecW-Xb-Sbj">
-                                <rect key="frame" x="362" y="638" width="40" height="40"/>
+                                <rect key="frame" x="272" y="382" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="fdA-7B-GUU"/>
@@ -245,14 +474,14 @@
                         <viewControllerLayoutGuide type="bottom" id="0UP-Bt-LBK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Rsl-if-plZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="adJ-NH-eFE">
-                                <rect key="frame" x="0.0" y="70" width="414" height="666"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="410"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-Ms-HY0">
-                                <rect key="frame" x="167" y="676" width="80" height="40"/>
+                                <rect key="frame" x="120" y="420" width="80" height="40"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="BJZ-lI-A3h"/>
@@ -271,7 +500,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlm-yX-8Mf">
-                                <rect key="frame" x="0.0" y="20" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QRj-8y-SxL"/>
@@ -317,11 +546,11 @@
                         <viewControllerLayoutGuide type="bottom" id="RcR-nL-6S0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lnV-SV-eW7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mc3-pX-WJI">
-                                <rect key="frame" x="0.0" y="295" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="295" width="320" height="60"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="birthday" translatesAutoresizingMaskIntoConstraints="NO" id="O9A-C1-Yfc">
                                         <rect key="frame" x="18" y="20" width="20" height="20"/>
@@ -341,13 +570,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVI-qU-nMC">
-                                <rect key="frame" x="165.33333333333334" y="505.00000000000006" width="83.333333333333314" height="20.333333333333428"/>
+                                <rect key="frame" x="118" y="505" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make my day by sending me a message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRS-iK-4xM">
-                                <rect key="frame" x="57" y="375" width="300" height="30"/>
+                                <rect key="frame" x="10" y="375" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="vLB-I3-FXr"/>
                                 </constraints>
@@ -356,7 +585,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icC-QR-FpN">
-                                <rect key="frame" x="127" y="120" width="160" height="160"/>
+                                <rect key="frame" x="80" y="120" width="160" height="160"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="TM5-gO-mUc">
                                         <rect key="frame" x="15" y="15" width="130" height="130"/>
@@ -370,7 +599,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBs-z4-YnW">
-                                <rect key="frame" x="167" y="435" width="80" height="40"/>
+                                <rect key="frame" x="120" y="435" width="80" height="40"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6MB-ga-AhN"/>
@@ -388,7 +617,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4g-gc-qEQ">
-                                <rect key="frame" x="0.0" y="20" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="lOz-8a-XyB"/>
@@ -428,7 +657,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23x-bk-grY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5505" y="2698"/>
+            <point key="canvasLocation" x="5729" y="2411"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="3Tf-4V-TaJ">
@@ -439,11 +668,11 @@
                         <viewControllerLayoutGuide type="bottom" id="KRx-nv-Itg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZYh-rk-bW0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHa-ow-Vn9">
-                                <rect key="frame" x="0.0" y="20" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.84455215930938721" green="0.17351618409156799" blue="0.23396173119544983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gA1-AJ-6Qc"/>
@@ -457,10 +686,10 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TzZ-rY-8bA">
-                                <rect key="frame" x="0.0" y="70" width="414" height="666"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="410"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVr-uD-4AP">
-                                        <rect key="frame" x="0.0" y="30" width="414" height="110"/>
+                                        <rect key="frame" x="0.0" y="30" width="320" height="110"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="Aa4-bB-zu3"/>
@@ -474,7 +703,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LE0-lz-Z66">
-                                        <rect key="frame" x="0.0" y="170" width="414" height="110"/>
+                                        <rect key="frame" x="0.0" y="170" width="320" height="110"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="r2u-0j-FWe"/>
@@ -488,7 +717,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8f-rc-QwZ">
-                                        <rect key="frame" x="0.0" y="310" width="414" height="110"/>
+                                        <rect key="frame" x="0.0" y="310" width="320" height="110"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="QLw-10-zLT"/>
@@ -502,7 +731,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brq-au-bS8">
-                                        <rect key="frame" x="0.0" y="450" width="414" height="110"/>
+                                        <rect key="frame" x="0.0" y="450" width="320" height="110"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="ofX-is-WdV"/>
@@ -559,11 +788,11 @@
                         <viewControllerLayoutGuide type="bottom" id="x5u-gm-XEK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vH3-IO-Y8T">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5u-eQ-x60">
-                                <rect key="frame" x="0.0" y="20" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.84455215930000005" green="0.1735161841" blue="0.23396173119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bjW-pB-VIo"/>
@@ -577,10 +806,10 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrE-HX-BHF">
-                                <rect key="frame" x="0.0" y="70" width="414" height="666"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="410"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4J4-1c-axI">
-                                        <rect key="frame" x="181.66666666666666" y="510" width="52" height="30"/>
+                                        <rect key="frame" x="134.5" y="510" width="52" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="3J7-lK-3iu"/>
                                             <constraint firstAttribute="width" constant="50" id="Kjl-xW-DKq"/>
@@ -593,7 +822,7 @@
                                         </connections>
                                     </switch>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvv-e1-56l">
-                                        <rect key="frame" x="167" y="260" width="80" height="40"/>
+                                        <rect key="frame" x="120" y="260" width="80" height="40"/>
                                         <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="9lj-yq-HjQ"/>
@@ -611,8 +840,8 @@
                                             <segue destination="ijc-M4-Bk7" kind="show" identifier="segueToUpdateLocation" id="2bQ-IJ-AQV"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Soh-wX-gDI">
-                                        <rect key="frame" x="0.0" y="30" width="414" height="200"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Soh-wX-gDI">
+                                        <rect key="frame" x="0.0" y="30" width="320" height="200"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="Gjg-Ge-vWS"/>
@@ -623,8 +852,8 @@ The first way is to provide a location yourself. You can do that by touching the
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xnz-ck-oGT">
-                                        <rect key="frame" x="0.0" y="330" width="414" height="150"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnz-ck-oGT">
+                                        <rect key="frame" x="0.0" y="330" width="320" height="150"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="yf2-wx-xoP"/>
@@ -680,11 +909,11 @@ The first way is to provide a location yourself. You can do that by touching the
                         <viewControllerLayoutGuide type="bottom" id="zJk-fS-BFK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AwI-0b-Q88">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCf-bm-NnK">
-                                <rect key="frame" x="0.0" y="20" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.84455215930000005" green="0.1735161841" blue="0.23396173119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Rgg-Qt-moO"/>
@@ -698,10 +927,10 @@ The first way is to provide a location yourself. You can do that by touching the
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DcJ-xc-jMb">
-                                <rect key="frame" x="0.0" y="70" width="414" height="666"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="410"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="You can update your profile picture by taking a new picture with your device or by uploading one from your gallery." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cO9-Tv-jhj">
-                                        <rect key="frame" x="0.0" y="30" width="414" height="100"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="You can update your profile picture by taking a new picture with your device or by uploading one from your gallery." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cO9-Tv-jhj">
+                                        <rect key="frame" x="0.0" y="30" width="320" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="x5w-5G-uzy"/>
@@ -710,8 +939,8 @@ The first way is to provide a location yourself. You can do that by touching the
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Keep in mind that the picture will be displayed in a circle. A panorama of your last holiday may render poorly." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8hV-G8-MCM">
-                                        <rect key="frame" x="0.0" y="230" width="414" height="100"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Keep in mind that the picture will be displayed in a circle. A panorama of your last holiday may render poorly." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hV-G8-MCM">
+                                        <rect key="frame" x="0.0" y="230" width="320" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="Mfk-7B-ijQ"/>
@@ -721,7 +950,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5L-iq-LQ7">
-                                        <rect key="frame" x="102" y="160" width="80" height="40"/>
+                                        <rect key="frame" x="55" y="160" width="80" height="40"/>
                                         <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="QKN-GW-t0W"/>
@@ -740,7 +969,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgt-dg-8J2">
-                                        <rect key="frame" x="232" y="160" width="80" height="40"/>
+                                        <rect key="frame" x="185" y="160" width="80" height="40"/>
                                         <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="nkb-j2-6a5"/>
@@ -800,11 +1029,11 @@ The first way is to provide a location yourself. You can do that by touching the
                         <viewControllerLayoutGuide type="bottom" id="w4o-2n-aAf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WUa-ny-prP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ru2-x8-bfn">
-                                <rect key="frame" x="0.0" y="20" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.84455215930000005" green="0.1735161841" blue="0.23396173119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1T5-Gr-LLQ"/>
@@ -818,10 +1047,10 @@ The first way is to provide a location yourself. You can do that by touching the
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOA-gG-iTh">
-                                <rect key="frame" x="0.0" y="70" width="414" height="666"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="410"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="When you touch the save button, your info will be saved as it stands in the text fields below." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SLF-4W-aKy">
-                                        <rect key="frame" x="0.0" y="30" width="414" height="100"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="When you touch the save button, your info will be saved as it stands in the text fields below." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLF-4W-aKy">
+                                        <rect key="frame" x="0.0" y="30" width="320" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="dt0-iJ-Z2t"/>
@@ -831,7 +1060,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ghJ-BI-cM7">
-                                        <rect key="frame" x="10" y="160" width="394" height="40"/>
+                                        <rect key="frame" x="10" y="160" width="300" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Mdn-cA-lyj"/>
@@ -841,7 +1070,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O0V-V0-zsY">
-                                        <rect key="frame" x="10" y="202" width="394" height="40"/>
+                                        <rect key="frame" x="10" y="202" width="300" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="t3r-Ja-FO8"/>
@@ -851,7 +1080,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Job" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SDj-Mq-7Ds">
-                                        <rect key="frame" x="10" y="244" width="394" height="40"/>
+                                        <rect key="frame" x="10" y="244" width="300" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="BfO-82-ca3"/>
@@ -861,7 +1090,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City of residence" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gz-JO-0KC">
-                                        <rect key="frame" x="10" y="286" width="394" height="40"/>
+                                        <rect key="frame" x="10" y="286" width="300" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="YvR-Kg-hjp"/>
@@ -871,7 +1100,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Hs-Zh-qY6">
-                                        <rect key="frame" x="10" y="328" width="394" height="40"/>
+                                        <rect key="frame" x="10" y="328" width="300" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="82F-dy-CQY"/>
@@ -881,7 +1110,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0l7-Fj-492">
-                                        <rect key="frame" x="10" y="370" width="394" height="40"/>
+                                        <rect key="frame" x="10" y="370" width="300" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="GME-qp-HUQ"/>
@@ -891,7 +1120,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpu-SS-IjG">
-                                        <rect key="frame" x="167" y="425" width="80" height="40"/>
+                                        <rect key="frame" x="120" y="425" width="80" height="40"/>
                                         <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LqQ-Er-FOC"/>
@@ -973,11 +1202,11 @@ The first way is to provide a location yourself. You can do that by touching the
                         <viewControllerLayoutGuide type="bottom" id="GrD-5g-gaZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T9C-vV-Xhf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sj6-ae-QiU">
-                                <rect key="frame" x="0.0" y="20" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.84455215930000005" green="0.1735161841" blue="0.23396173119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tCn-oZ-v4x"/>
@@ -991,10 +1220,10 @@ The first way is to provide a location yourself. You can do that by touching the
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLl-LC-6UP">
-                                <rect key="frame" x="0.0" y="70" width="414" height="666"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="410"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fcA-R8-Juo">
-                                        <rect key="frame" x="0.0" y="30" width="414" height="100"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcA-R8-Juo">
+                                        <rect key="frame" x="0.0" y="30" width="320" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="A6f-Ru-k17"/>
@@ -1005,7 +1234,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FvW-S1-GBm">
-                                        <rect key="frame" x="181.66666666666666" y="160" width="52" height="30"/>
+                                        <rect key="frame" x="134.5" y="160" width="52" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="FAo-V9-8bZ"/>
                                             <constraint firstAttribute="width" constant="50" id="S84-g3-eir"/>
@@ -1045,7 +1274,7 @@ The first way is to provide a location yourself. You can do that by touching the
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LeF-x6-DKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6487" y="1660"/>
+            <point key="canvasLocation" x="6406" y="1723"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="TGK-Xp-Kfg">
@@ -1056,14 +1285,14 @@ The first way is to provide a location yourself. You can do that by touching the
                         <viewControllerLayoutGuide type="bottom" id="d5l-8Y-uMj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mEe-Gh-hEn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bk-oj-YKJ">
-                                <rect key="frame" x="0.0" y="70" width="414" height="666"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="410"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6PB-Zr-vPR">
-                                        <rect key="frame" x="0.0" y="258" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="258" width="320" height="60"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="ApD-K1-Oc2">
                                                 <rect key="frame" x="18" y="20" width="20" height="20"/>
@@ -1073,13 +1302,13 @@ The first way is to provide a location yourself. You can do that by touching the
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUv-um-TPm">
-                                                <rect key="frame" x="77" y="5" width="279" height="50"/>
+                                                <rect key="frame" x="77" y="5" width="185" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                 <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ti-0g-bgc">
-                                                <rect key="frame" x="366" y="10" width="40" height="40"/>
+                                                <rect key="frame" x="272" y="10" width="40" height="40"/>
                                                 <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="3gf-9T-Mx2"/>
@@ -1110,10 +1339,10 @@ The first way is to provide a location yourself. You can do that by touching the
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPJ-zG-W4g">
-                                        <rect key="frame" x="0.0" y="321" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="321" width="320" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYT-BG-gGQ">
-                                                <rect key="frame" x="77" y="5" width="279" height="50"/>
+                                                <rect key="frame" x="77" y="5" width="185" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                 <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1126,7 +1355,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otD-rk-cb3">
-                                                <rect key="frame" x="366" y="10" width="40" height="40"/>
+                                                <rect key="frame" x="272" y="10" width="40" height="40"/>
                                                 <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="RiM-gb-f3d"/>
@@ -1157,7 +1386,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1p-5q-IIy">
-                                        <rect key="frame" x="0.0" y="384" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="384" width="320" height="60"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="PH3-by-IbN">
                                                 <rect key="frame" x="18" y="20" width="20" height="20"/>
@@ -1167,7 +1396,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SjO-ww-OFD">
-                                                <rect key="frame" x="77" y="5" width="317" height="50"/>
+                                                <rect key="frame" x="77" y="5" width="223" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                 <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1185,7 +1414,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3JT-gF-0cH">
-                                        <rect key="frame" x="0.0" y="447" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="447" width="320" height="60"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="work" translatesAutoresizingMaskIntoConstraints="NO" id="FcE-ol-vW6">
                                                 <rect key="frame" x="18" y="20" width="20" height="20"/>
@@ -1195,7 +1424,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVa-oy-Scc">
-                                                <rect key="frame" x="77" y="5" width="317" height="50"/>
+                                                <rect key="frame" x="77" y="5" width="223" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                 <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1213,7 +1442,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fk9-9y-KHf">
-                                        <rect key="frame" x="0.0" y="195" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="195" width="320" height="60"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="birthday" translatesAutoresizingMaskIntoConstraints="NO" id="1Jv-6K-C2R">
                                                 <rect key="frame" x="18" y="20" width="20" height="20"/>
@@ -1223,7 +1452,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCu-HY-coR">
-                                                <rect key="frame" x="77" y="5" width="317" height="50"/>
+                                                <rect key="frame" x="77" y="5" width="223" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                 <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1241,7 +1470,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6D-TS-obP">
-                                        <rect key="frame" x="167.33333333333334" y="527" width="80" height="40"/>
+                                        <rect key="frame" x="120.5" y="527" width="80" height="40"/>
                                         <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Khd-HH-AFR"/>
@@ -1260,7 +1489,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsp-cH-Jh2">
-                                        <rect key="frame" x="127.33333333333331" y="20" width="160" height="160"/>
+                                        <rect key="frame" x="80.5" y="20" width="160" height="160"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="Z1S-dz-iRT">
                                                 <rect key="frame" x="15" y="15" width="130" height="130"/>
@@ -1299,7 +1528,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwC-PZ-vvr">
-                                <rect key="frame" x="0.0" y="20" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="rFk-3k-xpk"/>
@@ -1350,18 +1579,18 @@ The first way is to provide a location yourself. You can do that by touching the
                         <viewControllerLayoutGuide type="bottom" id="siY-Sd-GE2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VV2-PR-3nw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d4p-nf-zCL">
-                                <rect key="frame" x="0.0" y="70" width="414" height="666"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="410"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="Wep-1Y-4Nb" customClass="ClassListViewCell" customModule="Lorange" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wep-1Y-4Nb" id="fyS-s3-chU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="kqL-t5-BYY">
@@ -1394,7 +1623,7 @@ The first way is to provide a location yourself. You can do that by touching the
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g0-93-z05">
-                                <rect key="frame" x="0.0" y="20" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.1843137255" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <state key="normal" title="SEE CLASS ON A MAP">
@@ -1451,9 +1680,9 @@ The first way is to provide a location yourself. You can do that by touching the
         <image name="work" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="FMD-0Z-GVL"/>
         <segue reference="plO-bK-udx"/>
-        <segue reference="MCK-pC-MYU"/>
-        <segue reference="2bQ-IJ-AQV"/>
-        <segue reference="f51-bK-4dq"/>
+        <segue reference="QK8-nf-Trz"/>
+        <segue reference="99m-Ss-GfE"/>
     </inferredMetricsTieBreakers>
 </document>

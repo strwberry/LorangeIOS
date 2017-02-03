@@ -1,61 +1,23 @@
 import UIKit
 
-class EditPositionViewController: UIViewController {
+class FirstLogAutoLocationViewController: UIViewController {
     
     let userID = UserDefaults.standard.integer(forKey: "userID")
     let network = UserDefaults.standard.string(forKey: "network")
     var semaphoreForVerdict: DispatchSemaphore?
+
+    @IBOutlet weak var autoLocateSwitch: UISwitch!
     
-    @IBOutlet weak var autoLocationSwitch: UISwitch!
-    @IBOutlet weak var positionUpdateButton: UIButton!
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        if UserDefaults.standard.bool(forKey: "autoLocation")
-        {
-            autoLocationSwitch.isOn = true
-            
-            positionUpdateButton.isUserInteractionEnabled = false
-        }
-        else
-        {
-            autoLocationSwitch.isOn = false
-            
-            positionUpdateButton.isUserInteractionEnabled = true
-        }
     }
     
     
     
-    // what happens when the auto location switch is flipped
-    
-    @IBAction func setAutoLocation(_ sender: Any) {
-        
-        if autoLocationSwitch.isOn
-        {
-            UserDefaults.standard.set(true, forKey: "autoLocation")
-            
-            _ = editAutoLocate(network: network!, userID: userID, autoLocate: 1)
-            
-            performSegue(withIdentifier: "segueToUpdateLocation", sender: self)
-        }
-        else
-        {
-            UserDefaults.standard.set(false, forKey: "autoLocation")
-            
-            _ = editAutoLocate(network: network!, userID: userID, autoLocate: 0)
-            
-            performSegue(withIdentifier: "segueToUpdateLocation", sender: self)
-        }
-
-    }
-    
-    
-    
-    // edits autolocate in the database
+    // edits autolocate and active in the database
     
     func editAutoLocate(network: String, userID: Int, autoLocate: Int) -> Bool {
         
@@ -107,4 +69,23 @@ class EditPositionViewController: UIViewController {
     }
     
     
+    
+    // running when segue validated
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "segueToApp"
+        {
+            UserDefaults.standard.set(autoLocateSwitch.isOn, forKey: "autoLocation")
+            
+            var autoLocate = 0
+            
+            if autoLocateSwitch.isOn
+            {
+                autoLocate = 1
+            }
+            
+            _ = editAutoLocate(network: network!, userID: userID, autoLocate: autoLocate)
+        }
+    }
 }
