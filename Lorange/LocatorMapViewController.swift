@@ -33,6 +33,8 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         locateUser()
         
+        // sets the screen to auto location being initialized
+        
         if UserDefaults.standard.bool(forKey: "autoLocation")
         {
             buttonGraphicElement.isHidden = true

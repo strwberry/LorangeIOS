@@ -6,10 +6,12 @@ class FirstLogNameViewController: UIViewController {
     let network = UserDefaults.standard.string(forKey: "network")
     var firstName: String?
     var lastName: String?
+    var email:String?
     var semaphoreForVerdict: DispatchSemaphore?
   
     @IBOutlet weak var firstNameBox: UITextField!
     @IBOutlet weak var lastNameBox: UITextField!
+    @IBOutlet weak var emailBox: UITextField!
     
     
     override func viewDidLoad() {
@@ -21,6 +23,8 @@ class FirstLogNameViewController: UIViewController {
         firstNameBox.text = firstName
         
         lastNameBox.text = lastName
+        
+        emailBox.text = email
     }
     
     
@@ -61,7 +65,10 @@ class FirstLogNameViewController: UIViewController {
                 {
                     
                     self.firstName = (json["firstName"]! as! String)
+                    
                     self.lastName = (json["lastName"]! as! String)
+                    
+                    self.email = (json["email"]! as! String)
                 }
                 
             }
@@ -87,12 +94,12 @@ class FirstLogNameViewController: UIViewController {
     
     // edits name in the database
     
-    func editName(network: String, userID: Int, firstName: String, lastName: String) -> Bool {
+    func editName(network: String, userID: Int, firstName: String, lastName: String, email: String) -> Bool {
         
         var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/edit_name_v1.php")!)
         request.httpMethod = "POST"
         
-        let body = "network=\(network)&userID=\(userID)&firstName=\(firstName)&lastName=\(lastName)"
+        let body = "network=\(network)&userID=\(userID)&firstName=\(firstName)&lastName=\(lastName)&email=\(email)"
         request.httpBody = body.data(using: String.Encoding.utf8)
         
         
@@ -144,7 +151,7 @@ class FirstLogNameViewController: UIViewController {
         
         if segue.identifier == "segueToFirstLogBirthday"
         {
-            _ = editName(network: network!, userID: userID, firstName: firstNameBox.text!, lastName: lastNameBox.text!)
+            _ = editName(network: network!, userID: userID, firstName: firstNameBox.text!, lastName: lastNameBox.text!, email: emailBox.text!)
         }
     }
 }
