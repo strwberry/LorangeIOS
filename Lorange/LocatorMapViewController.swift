@@ -5,7 +5,7 @@ import CoreLocation
 class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let userID = UserDefaults.standard.integer(forKey: "userID")
-    let network = UserDefaults.standard.string(forKey: "network")
+    var network = ""
     let manager = CLLocationManager()
     var positionLat: Int?
     var positionLng: Int?
@@ -24,6 +24,19 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // fixes the bug from v1.2
+        
+        if (UserDefaults.standard.string(forKey: "network") != nil)
+        {
+            network = UserDefaults.standard.string(forKey: "network")!
+        }
+        else
+        {
+            network = "imd_mba_2015"
+        }
+        
+        // end of bug fix
         
         viewBox.layer.cornerRadius = viewBox.frame.size.height/2
         
@@ -218,7 +231,7 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
             
             UserDefaults.standard.set(positionLng, forKey: "positionLng")
             
-            updateLocation(network: network!, userID: userID, positionLat: positionLat, positionLng: positionLng)
+            updateLocation(network: network, userID: userID, positionLat: positionLat, positionLng: positionLng)
         }
         
     }

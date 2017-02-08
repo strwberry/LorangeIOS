@@ -138,13 +138,29 @@ class LoginViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "segueToLocatorMap" || segue.identifier == "segueToFirstLog"
+        if segue.identifier == "segueToLocatorMap"
         {
+            UserDefaults.standard.set(self.network, forKey: "network")
+            
             UserDefaults.standard.set(true, forKey: "isLoggedIn")
             
             UserDefaults.standard.set(self.userID, forKey: "userID")
             
+            UserDefaults.standard.synchronize()
+        }
+        else if segue.identifier == "segueToFirstLog"
+        {
+            let destinationVC = segue.destination as! FirstLogNameViewController
+            
+            destinationVC.userID = self.userID!
+            
+            destinationVC.network = self.network!
+            
             UserDefaults.standard.set(self.network, forKey: "network")
+            
+            UserDefaults.standard.set(true, forKey: "isLoggedIn")
+            
+            UserDefaults.standard.set(self.userID, forKey: "userID")
             
             UserDefaults.standard.synchronize()
         }

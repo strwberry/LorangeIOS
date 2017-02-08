@@ -2,11 +2,12 @@ import UIKit
 
 class FirstLogNameViewController: UIViewController {
     
-    let userID = UserDefaults.standard.integer(forKey: "userID")
-    let network = UserDefaults.standard.string(forKey: "network")
+    var userID = UserDefaults.standard.integer(forKey: "userID")
+    var network = UserDefaults.standard.string(forKey: "network")
+    
     var firstName: String?
     var lastName: String?
-    var email:String?
+    var email: String?
     var semaphoreForVerdict: DispatchSemaphore?
   
     @IBOutlet weak var firstNameBox: UITextField!
