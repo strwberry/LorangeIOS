@@ -26,7 +26,7 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         super.viewDidLoad()
         
         // fixes the bug from v1.2
-        
+        /*
         if (UserDefaults.standard.string(forKey: "network") != nil)
         {
             network = UserDefaults.standard.string(forKey: "network")!
@@ -34,8 +34,12 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         else
         {
             network = "imd_mba_2015"
+         
+            UserDefaults.standard.set(self.network, forKey: "network")
+            
+            UserDefaults.standard.synchronize()
         }
-        
+        */
         // end of bug fix
         
         viewBox.layer.cornerRadius = viewBox.frame.size.height/2
@@ -176,7 +180,7 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
             
             manager.startUpdatingLocation()
             
-            manager.allowsBackgroundLocationUpdates = true
+            // manager.allowsBackgroundLocationUpdates = true
         }
         else
         {
@@ -196,7 +200,8 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     
     
-    // if autolocation is on, monitors location changes
+    /*
+     // if autolocation is on, monitors location changes
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         
@@ -204,8 +209,8 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         {
             manager.startMonitoringSignificantLocationChanges()
         }
-        
     }
+    */
     
     
     
@@ -215,13 +220,7 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         let userLocation: CLLocation = locations[0]
         
-        let position = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
-        
-        let region = MKCoordinateRegion(center: position, span: MKCoordinateSpanMake(self.ZOOM, self.ZOOM))
-        
-        Map.setRegion(region, animated: true)
-        
-        if UserDefaults.standard.bool(forKey: "autoLocation")
+        /*if UserDefaults.standard.bool(forKey: "autoLocation")
         {
             let positionLat = Int(userLocation.coordinate.latitude * 1000000)
             
@@ -233,6 +232,14 @@ class LocatorMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
             
             updateLocation(network: network, userID: userID, positionLat: positionLat, positionLng: positionLng)
         }
+        else
+        {*/
+            let position = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
+            
+            let region = MKCoordinateRegion(center: position, span: MKCoordinateSpanMake(self.ZOOM, self.ZOOM))
+            
+            Map.setRegion(region, animated: true)
+        //}
         
     }
     

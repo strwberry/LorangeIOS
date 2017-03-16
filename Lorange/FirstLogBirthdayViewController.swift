@@ -26,6 +26,7 @@ class FirstLogBirthdayViewController: UIViewController {
     
     func getBirthday(network: String, userID: Int) -> Bool {
         
+        
         var request = URLRequest(url: URL(string: "http://strwberry.io/db_files/profile_v1.php")!)
         request.httpMethod = "POST"
         

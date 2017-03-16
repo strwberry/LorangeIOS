@@ -21,6 +21,11 @@
 		BF99CA0B1DC77E41000895F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF99CA091DC77E41000895F7 /* LaunchScreen.storyboard */; };
 		BF99CA161DC77E41000895F7 /* LorangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA151DC77E41000895F7 /* LorangeTests.swift */; };
 		BF99CA211DC77E41000895F7 /* LorangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CA201DC77E41000895F7 /* LorangeUITests.swift */; };
+		BF9A99DE1E57447A00500968 /* FlurryEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9A99D71E57447A00500968 /* FlurryEmpty.m */; };
+		BF9A99DF1E57447A00500968 /* FlurryWatchEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9A99DA1E57447A00500968 /* FlurryWatchEmpty.m */; };
+		BF9A99E01E57447A00500968 /* libFlurry_7.9.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9A99DB1E57447A00500968 /* libFlurry_7.9.2.a */; };
+		BF9A99E41E5744FC00500968 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9A99E31E5744FC00500968 /* Security.framework */; };
+		BF9A99E61E57450800500968 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9A99E51E57450800500968 /* SystemConfiguration.framework */; };
 		BF9CF01A1DC8AD38004E9F0A /* LocatorMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CF0191DC8AD38004E9F0A /* LocatorMapViewController.swift */; };
 		BF9D2F5B1DD0880200D80044 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D2F5A1DD0880200D80044 /* ProfileViewController.swift */; };
 		BF9D2F5D1DD118EC00D80044 /* ClassListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D2F5C1DD118EC00D80044 /* ClassListViewCell.swift */; };
@@ -72,6 +77,17 @@
 		BF99CA1C1DC77E41000895F7 /* LorangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LorangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF99CA201DC77E41000895F7 /* LorangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LorangeUITests.swift; sourceTree = "<group>"; };
 		BF99CA221DC77E41000895F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF9A99D61E57447A00500968 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		BF9A99D71E57447A00500968 /* FlurryEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlurryEmpty.m; sourceTree = "<group>"; };
+		BF9A99D81E57447A00500968 /* FlurrySessionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurrySessionBuilder.h; sourceTree = "<group>"; };
+		BF9A99D91E57447A00500968 /* FlurryWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryWatch.h; sourceTree = "<group>"; };
+		BF9A99DA1E57447A00500968 /* FlurryWatchEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlurryWatchEmpty.m; sourceTree = "<group>"; };
+		BF9A99DB1E57447A00500968 /* libFlurry_7.9.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.9.2.a; sourceTree = "<group>"; };
+		BF9A99DC1E57447A00500968 /* libFlurryTVOS_7.9.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryTVOS_7.9.2.a; sourceTree = "<group>"; };
+		BF9A99DD1E57447A00500968 /* libFlurryWatch_7.9.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryWatch_7.9.2.a; sourceTree = "<group>"; };
+		BF9A99E31E5744FC00500968 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BF9A99E51E57450800500968 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BF9A99E71E57458900500968 /* Lorange-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lorange-Bridging-Header.h"; sourceTree = "<group>"; };
 		BF9CF0191DC8AD38004E9F0A /* LocatorMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocatorMapViewController.swift; sourceTree = "<group>"; };
 		BF9D2F5A1DD0880200D80044 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BF9D2F5C1DD118EC00D80044 /* ClassListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassListViewCell.swift; sourceTree = "<group>"; };
@@ -90,7 +106,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF9A99E61E57450800500968 /* SystemConfiguration.framework in Frameworks */,
+				BF9A99E41E5744FC00500968 /* Security.framework in Frameworks */,
 				BF21F63E1E12BDAD00BE7D0E /* MapKit.framework in Frameworks */,
+				BF9A99E01E57447A00500968 /* libFlurry_7.9.2.a in Frameworks */,
 				BF13B9751E03EFC00042E24C /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +134,8 @@
 		BF13B9731E03EFC00042E24C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF9A99E51E57450800500968 /* SystemConfiguration.framework */,
+				BF9A99E31E5744FC00500968 /* Security.framework */,
 				BF21F63D1E12BDAD00BE7D0E /* MapKit.framework */,
 				BF13B9741E03EFC00042E24C /* MessageUI.framework */,
 			);
@@ -145,6 +166,7 @@
 		BF99C9FF1DC77E41000895F7 /* Lorange */ = {
 			isa = PBXGroup;
 			children = (
+				BF9A99D51E57447A00500968 /* Flurry */,
 				BF99CA001DC77E41000895F7 /* AppDelegate.swift */,
 				BF943A831DD1BE9600E9E890 /* OpeningNavigationController.swift */,
 				BF2071271DC9F27000294FDF /* Alumni.swift */,
@@ -167,6 +189,7 @@
 				BF99CA071DC77E41000895F7 /* Assets.xcassets */,
 				BF99CA091DC77E41000895F7 /* LaunchScreen.storyboard */,
 				BF99CA0C1DC77E41000895F7 /* Info.plist */,
+				BF9A99E71E57458900500968 /* Lorange-Bridging-Header.h */,
 			);
 			path = Lorange;
 			sourceTree = "<group>";
@@ -187,6 +210,21 @@
 				BF99CA221DC77E41000895F7 /* Info.plist */,
 			);
 			path = LorangeUITests;
+			sourceTree = "<group>";
+		};
+		BF9A99D51E57447A00500968 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				BF9A99D61E57447A00500968 /* Flurry.h */,
+				BF9A99D71E57447A00500968 /* FlurryEmpty.m */,
+				BF9A99D81E57447A00500968 /* FlurrySessionBuilder.h */,
+				BF9A99D91E57447A00500968 /* FlurryWatch.h */,
+				BF9A99DA1E57447A00500968 /* FlurryWatchEmpty.m */,
+				BF9A99DB1E57447A00500968 /* libFlurry_7.9.2.a */,
+				BF9A99DC1E57447A00500968 /* libFlurryTVOS_7.9.2.a */,
+				BF9A99DD1E57447A00500968 /* libFlurryWatch_7.9.2.a */,
+			);
+			path = Flurry;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,7 +381,9 @@
 				BF9D2F5B1DD0880200D80044 /* ProfileViewController.swift in Sources */,
 				BF99CA011DC77E41000895F7 /* AppDelegate.swift in Sources */,
 				BFBBE4301E3769C30046031A /* EditInfoViewController.swift in Sources */,
+				BF9A99DF1E57447A00500968 /* FlurryWatchEmpty.m in Sources */,
 				BFBC98641E423A48008B218E /* FirstLogNameViewController.swift in Sources */,
+				BF9A99DE1E57447A00500968 /* FlurryEmpty.m in Sources */,
 				BF79EE921DCCD87400DBD26F /* ClassMapViewController.swift in Sources */,
 				BFBC98661E423D3F008B218E /* FirstLogBirthdayViewController.swift in Sources */,
 				BFBBE42E1E3769730046031A /* EditPictureViewController.swift in Sources */,
@@ -506,8 +546,13 @@
 				DEVELOPMENT_TEAM = 2E57B8RQ4C;
 				INFOPLIST_FILE = Lorange/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lorange/Flurry",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.strwberry.strwberry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lorange/Lorange-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -519,8 +564,13 @@
 				DEVELOPMENT_TEAM = 2E57B8RQ4C;
 				INFOPLIST_FILE = Lorange/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lorange/Flurry",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.strwberry.strwberry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lorange/Lorange-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
